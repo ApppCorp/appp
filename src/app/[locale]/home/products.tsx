@@ -45,15 +45,21 @@ export default function Products(): JSX.Element {
 										: (
 											/*
 											 * 保健品品类按客户要求只以文字展示品牌名，不使用任何品牌 Logo，
-											 * 因此这一张用深色排版卡片代替照片。
+											 * 因此这一张用深色排版卡片代替照片；标题、说明与品牌名保持连贯的阅读顺序。
 											 */
-											<div className="flex h-56 flex-col justify-between bg-primary p-8 text-primary-content lg:h-64">
+											<div className="flex flex-col bg-primary p-7 text-primary-content lg:p-9">
 												<span className="text-[10px] font-medium uppercase tracking-[0.2em] text-secondary">
 													Selected brands
 												</span>
-												<ul className="space-y-1">
+												<h3 className="mt-5 font-serif text-xl leading-snug lg:text-2xl">
+													{item.title}
+												</h3>
+												<p className="mt-3 text-sm leading-relaxed text-primary-content/70">
+													{item.description}
+												</p>
+												<ul className="mt-6 space-y-1.5">
 													{item.list.map((entry) => (
-														<li className="font-serif text-xl leading-snug lg:text-2xl" key={entry}>
+														<li className="font-serif text-lg leading-snug lg:text-xl" key={entry}>
 															{entry}
 														</li>
 													))}
@@ -61,27 +67,29 @@ export default function Products(): JSX.Element {
 											</div>
 										)}
 									<div className="flex flex-1 flex-col p-7 lg:p-9">
-										<h3 className="font-serif text-xl leading-snug text-primary lg:text-2xl">
-											{item.title}
-										</h3>
-										<p className="mt-3 text-sm leading-relaxed text-primary/65">
-											{item.description}
-										</p>
 										{item.image
 											? (
-												<ul className="mt-6 space-y-3">
-													{item.list.map((entry) => (
-														<li className="flex items-baseline gap-3 text-base text-primary/85" key={entry}>
-															<span className="h-px w-4 shrink-0 translate-y-[-3px] bg-secondary" />
-															<span className="font-serif">{entry}</span>
-														</li>
-													))}
-												</ul>
+												<>
+													<h3 className="font-serif text-xl leading-snug text-primary lg:text-2xl">
+														{item.title}
+													</h3>
+													<p className="mt-3 text-sm leading-relaxed text-primary/65">
+														{item.description}
+													</p>
+													<ul className="mt-6 space-y-3">
+														{item.list.map((entry) => (
+															<li className="flex items-baseline gap-3 text-base text-primary/85" key={entry}>
+																<span className="h-px w-4 shrink-0 translate-y-[-3px] bg-secondary" />
+																<span className="font-serif">{entry}</span>
+															</li>
+														))}
+													</ul>
+												</>
 											)
 											: null}
 										{item.note
 											? (
-												<p className="mt-auto pt-7 text-xs leading-relaxed text-primary/45">
+												<p className={`text-xs leading-relaxed text-primary/45 ${item.image ? "mt-auto pt-7" : ""}`}>
 													{item.note}
 												</p>
 											)
