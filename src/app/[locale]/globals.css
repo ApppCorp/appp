@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import "../reset.css";
+@plugin "daisyui" {
+	themes: false;
+}
+/* 品牌主题：深海军蓝 / 香槟金 / 暖米灰 */
+@plugin "daisyui/theme" {
+	--color-base-100: #fff;
+	--color-base-200: #f4f1ea;
+	--color-base-300: #e6e0d2;
+	--color-base-content: #12324a;
+	--color-primary: #12324a;
+	--color-primary-content: #f4f1ea;
+	--color-secondary: #c6a15b;
+	--color-secondary-content: #12324a;
+	--color-accent: #c6a15b;
+	--color-accent-content: #12324a;
+	--color-neutral: #0b1f2e;
+	--color-neutral-content: #f4f1ea;
+	--color-info: #2f6d8c;
+	--color-info-content: #fff;
+	--color-success: #2f7d5d;
+	--color-success-content: #fff;
+	--color-warning: #b8863b;
+	--color-warning-content: #12324a;
+	--color-error: #a5443a;
+	--color-error-content: #fff;
+	--radius-selector: 999px;
+	--radius-field: 0.75rem;
+	--radius-box: 1.5rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+	--border: 1px;
+	--depth: 0;
+	--noise: 0;
+	name: "appp";
+	default: true;
+	prefersdark: false;
+	color-scheme: light;
+}
+@theme {
+	--font-sans: var(--appp-sans), system-ui, sans-serif;
+	--font-serif: var(--appp-serif), georgia, "Times New Roman", serif;
+	--color-ink: #12324a;
+	--color-ink-deep: #0b1f2e;
+	--color-ivory: #f4f1ea;
+	--color-gold: #c6a15b;
+	--ease-out-expo: cubic-bezier(0.32, 0.72, 0, 1);
+}
+@layer base {
+	/* 纸质颗粒感，仅固定在视口层，不随内容滚动 */
+	body::after {
+		position: fixed;
+		inset: 0;
+		z-index: 60;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+		opacity: 0.03;
+		pointer-events: none;
+		content: "";
+	}
+	/* 章节锚点：固定导航下留出呼吸空间 */
+	section[id],
+	[id="enquiry"] {
+		scroll-margin-top: 7rem;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.001ms !important;
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}

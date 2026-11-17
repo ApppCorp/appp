@@ -1,0 +1,195 @@
+{
+	"hero": {
+		"eyebrow": "Australia Premium Products Platform",
+		"title": [
+			"Premium Australian Products",
+			"For Growing Asian Markets"
+		],
+		"description": [
+			"APPP supplies selected Australian health supplements and dairy products to business customers in Mainland China.",
+			"Through product sourcing, export coordination, order fulfilment and market development support, we help international businesses access quality Australian products and reliable supply solutions."
+		],
+		"primaryCta": "Explore Our Products",
+		"secondaryCta": "Discuss An Export Opportunity"
+	},
+	"about": {
+		"eyebrow": "About APPP",
+		"title": "A Sydney-based sourcing and export partner",
+		"description": [
+			"Australia Premium Products Platform Pty Ltd (APPP) is a Sydney-based B2B product sourcing and export company.",
+			"We work with established Australian suppliers and manufacturing partners to supply selected health supplements, full cream milk powder, skim milk powder and private label product solutions to international business customers.",
+			"Mainland China is one of our established export markets. We are continuing to develop new customers, distribution relationships and sales channels within China, including emerging opportunities in Hainan."
+		]
+	},
+	"services": {
+		"eyebrow": "Our Services",
+		"title": "What we coordinate",
+		"items": [
+			{
+				"title": "Australian Product Sourcing",
+				"description": "We source selected Australian health, nutrition and food products for international business customers.",
+				"image": "serviceSourcing"
+			},
+			{
+				"title": "Wholesale & Export Supply",
+				"description": "We coordinate product supply, wholesale orders, export preparation and international delivery arrangements.",
+				"image": "serviceSupply"
+			},
+			{
+				"title": "Export Fulfilment",
+				"description": "We provide flexible order fulfilment and export dispatch solutions for approved Australian products, subject to product availability and destination requirements.",
+				"image": "serviceFulfilment"
+			},
+			{
+				"title": "Private Label & OEM",
+				"description": "We work with selected Australian manufacturing partners to coordinate private label supplements, functional foods and nutrition products.",
+				"image": "servicePrivateLabel"
+			},
+			{
+				"title": "China Market Development",
+				"description": "We support business discussions, product preparation and channel development for the Mainland China market through our customer and service-provider network.",
+				"image": "serviceChina"
+			}
+		]
+	},
+	"products": {
+		"eyebrow": "Our Products",
+		"title": "Selected Australian product supply",
+		"items": [
+			{
+				"title": "Australian Health Supplements",
+				"description": "We supply selected Australian-produced health supplements from established brands, including:",
+				"list": [
+					"BioCeuticals",
+					"Herbs of Gold",
+					"Bioglan Medlab"
+				],
+				"note": "Available brands and products are subject to supplier approval, stock availability and destination-market requirements.",
+				"image": ""
+			},
+			{
+				"title": "Australian Dairy Products",
+				"description": "We supply Australian-produced dairy products for B2B and export customers, including:",
+				"list": [
+					"Full Cream Milk Powder",
+					"Skim Milk Powder"
+				],
+				"note": "Product specifications, packaging options, minimum order quantities and export availability are provided upon request.",
+				"image": "productDairy"
+			},
+			{
+				"title": "Private Label Products",
+				"description": "We coordinate selected private label and OEM opportunities through Australian manufacturing partners, including:",
+				"list": [
+					"Health Supplements",
+					"Functional Foods",
+					"Nutrition Powders",
+					"Dairy-Based Products"
+				],
+				"note": "",
+				"image": "productPrivateLabel"
+			}
+		]
+	},
+	"chinaMarket": {
+		"eyebrow": "Our China Market",
+		"title": "Serving Mainland China, developing Hainan",
+		"items": [
+			{
+				"title": "Serving Mainland China",
+				"status": "Active market",
+				"description": [
+					"APPP currently supplies selected Australian health supplements and dairy products to customers in Mainland China through wholesale, export and order fulfilment arrangements.",
+					"Different products and sales channels may have different import, registration, labelling and platform requirements. Product availability is assessed individually according to the product, customer and intended sales channel."
+				],
+				"image": "chinaServing"
+			},
+			{
+				"title": "Expanding Into Hainan",
+				"status": "Opportunities under development",
+				"description": [
+					"APPP is currently engaging with potential business partners and reviewing product-entry and retail-channel opportunities in Hainan.",
+					"This work includes understanding applicable import access, product documentation and platform listing requirements.",
+					"Any future supply or product launch in Hainan will be subject to the applicable regulatory requirements, commercial arrangements and formal approvals."
+				],
+				"image": "chinaHainan"
+			}
+		]
+	},
+	"privateLabel": {
+		"eyebrow": "Private Label & OEM",
+		"title": "Build your brand with Australian manufacturing partners",
+		"description": [
+			"APPP coordinates private label and OEM projects for international business customers seeking Australian product development and manufacturing solutions.",
+			"Our project support may include:"
+		],
+		"items": [
+			"Product selection and formulation discussions",
+			"Manufacturer coordination",
+			"Packaging and branding development",
+			"Minimum order quantity and quotation review",
+			"Production planning",
+			"Export preparation and delivery coordination"
+		],
+		"disclaimer": [
+			"Manufacturing is undertaken by selected third-party Australian manufacturing partners.",
+			"Product availability, lead times, minimum order quantities and regulatory requirements vary by product and destination market."
+		],
+		"cta": "Discuss Your Project"
+	},
+	"whyUs": {
+		"eyebrow": "Why Work With APPP",
+		"title": "What you can rely on",
+		"items": [
+			{
+				"title": "Australian Supply Network",
+				"description": "Access to selected Australian suppliers, products and manufacturing partners."
+			},
+			{
+				"title": "China Export Experience",
+				"description": "Existing experience supplying health supplements and dairy products to Mainland China."
+			},
+			{
+				"title": "Flexible B2B Solutions",
+				"description": "Support for wholesale orders, export fulfilment and private label projects."
+			},
+			{
+				"title": "Market-Focused Support",
+				"description": "Practical coordination based on the product, destination market and customer requirements."
+			}
+		]
+	},
+	"contact": {
+		"eyebrow": "Contact Us",
+		"title": "Discuss your product or export requirements",
+		"subtitle": "Contact our team regarding:",
+		"topics": [
+			"Australian product sourcing",
+			"Wholesale and export enquiries",
+			"Health supplement supply",
+			"Full cream and skim milk powder",
+			"Private label and OEM projects",
+			"Mainland China and Hainan opportunities"
+		],
+		"address": "Address",
+		"email": "Email",
+		"form": {
+			"title": "Send an enquiry",
+			"companyName": "Company Name",
+			"contactName": "Contact Name",
+			"email": "Email",
+			"country": "Country / Region",
+			"productInterest": "Product Interest",
+			"productInterestPlaceholder": "e.g. Full Cream Milk Powder, Health Supplements",
+			"orderVolume": "Estimated Order Volume",
+			"orderVolumePlaceholder": "e.g. 1 x 20ft container, 500 kg, 1 pallet",
+			"message": "Message",
+			"submit": "Send An Enquiry",
+			"submitting": "Sending…",
+			"success": "Thank you — your enquiry has been sent. We will reply shortly.",
+			"error": "Sorry, the enquiry could not be sent. Please email us directly and we will respond promptly.",
+			"fallback": "Or email us directly",
+			"required": "Required"
+		}
+	}
+}

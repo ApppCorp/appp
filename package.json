@@ -1,0 +1,49 @@
+{
+	"name": "appp",
+	"version": "2.0.0",
+	"private": true,
+	"description": "APPP - Australia Premium Products Platform, B2B product sourcing and export",
+	"type": "module",
+	"scripts": {
+		"check": "tsc --noEmit",
+		"dev": "next dev",
+		"build": "next build",
+		"purge": "rimraf .next node_modules package-lock.json",
+		"start": "next start",
+		"images": "node script/build-images.mjs",
+		"cf:build": "opennextjs-cloudflare build",
+		"cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+		"cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+	},
+	"dependencies": {
+		"clsx": "2.1.1",
+		"daisyui": "5.7.46",
+		"framer-motion": "13.4.4",
+		"lucide-react": "1.48.0",
+		"next": "16.3.6",
+		"next-intl": "4.14.7",
+		"react": "19.3.0",
+		"react-dom": "19.3.0",
+		"sharp": "0.35.5"
+	},
+	"devDependencies": {
+		"@opennextjs/cloudflare": "1.20.17",
+		"@tailwindcss/postcss": "4.3.3",
+		"@types/node": "26.6.3",
+		"@types/react": "19.3.0",
+		"@types/react-dom": "19.3.0",
+		"rimraf": "6.1.3",
+		"tailwindcss": "4.3.3",
+		"tsx": "4.23.15",
+		"typescript": "6.0.3",
+		"wrangler": "4.163.0"
+	},
+	"allowScripts": {
+		"@swc/core@1.16.22": true,
+		"workerd@1.20261116.1": true,
+		"esbuild@0.28.2": true,
+		"@parcel/watcher@2.6.0": true,
+		"fsevents@2.3.3": true
+	}
+}

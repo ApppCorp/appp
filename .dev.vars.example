@@ -1,0 +1,11 @@
+# 本地开发用的环境变量示例。
+# 复制为 .dev.vars 后由 wrangler dev / opennextjs-cloudflare preview 读取。
+
+# Resend API Key，用于把询价表单送到公司邮箱
+RESEND_API_KEY="re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# 询价接收邮箱
+CONTACT_TO_EMAIL="sales_appp@outlook.com"
+
+# 发件人地址（需已在 Resend 中验证域名）
+CONTACT_FROM_EMAIL="APPP Website <website@yourdomain.com>"
