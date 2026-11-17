@@ -1,11 +1,11 @@
+__pycache__
+.dev.vars
 .DS_Store
 .next
+.open-next
 .vscode
-__pycache__
+.wrangler
+cloudflare-env.d.ts
 dist
 node_modules
 package-lock.json
-.open-next
-.wrangler
-.dev.vars
-cloudflare-env.d.ts
