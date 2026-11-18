@@ -16,7 +16,7 @@ type FigureProps = {
 /**
  * 响应式图片。
  *
- * script/build-images.mjs 已经把每张原片调色并导出为三档 WebP，
+ * scripts/build-images.ts 已经把每张原片调色并导出为三档 WebP，
  * 这里直接给出 srcset，不再经过运行时图片优化。
  */
 export function Figure({

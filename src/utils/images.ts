@@ -1,4 +1,4 @@
-// 由 script/build-images.mjs 自动生成，请勿手动编辑。
+// 由 scripts/build-images.ts 自动生成，请勿手动编辑。
 // 重新生成：npm run images
 
 type ImageSlot =
@@ -322,23 +322,23 @@ export const images: Record<ImageSlot, ImageAsset> = {
 		"privateLabelAlt": {
 			"src": "/images/privateLabelAlt-560.webp",
 			"width": 560,
-			"height": 420,
-			"aspect": 0.75,
+			"height": 747,
+			"aspect": 1.3333,
 			"srcSet": "/images/privateLabelAlt-560.webp 560w, /images/privateLabelAlt-900.webp 900w, /images/privateLabelAlt-1280.webp 1280w",
 			"variants": [
 				{
 					"w": 560,
-					"h": 420,
+					"h": 747,
 					"file": "privateLabelAlt-560.webp"
 				},
 				{
 					"w": 900,
-					"h": 675,
+					"h": 1200,
 					"file": "privateLabelAlt-900.webp"
 				},
 				{
 					"w": 1280,
-					"h": 960,
+					"h": 1707,
 					"file": "privateLabelAlt-1280.webp"
 				}
 			]

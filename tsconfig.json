@@ -49,6 +49,7 @@
 		"node_modules"
 	],
 	"include": [
+		"scripts",
 		".next/dev/types/**/*.ts",
 		".next/types/**/*.ts",
 		"src",

@@ -30,7 +30,7 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 ## 二、目录结构
 
 ```tree
-├── script/build-images.mjs        图片调色 + 压缩管线
+├── scripts/build-images.ts        图片调色 + 压缩管线
 ├── src
 │   ├── app
 │   │   ├── [locale]
@@ -76,7 +76,7 @@ npm run cf:preview   # 用本地 workerd 预览 Worker（http://localhost:8787�
 
 ## 四、图片管线
 
-原始照片放在 `img/`（约 78MB 手机原片）。`script/build-images.mjs` 会对入选的 13 张图做统一调色
+原始照片放在 `img/`（约 78MB 手机原片）。`scripts/build-images.ts` 会对入选的 13 张图做统一调色
 （降饱和 + 暖色偏移 + 阴影向品牌海军蓝靠拢），导出三档 WebP 到 `public/images/`，并重写
 `src/utils/images.ts`。页面通过 `<Figure>` 组件直接输出 `srcset`，不经过运行时图片优化。
 

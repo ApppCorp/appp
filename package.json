@@ -12,7 +12,7 @@
 		"build": "next build",
 		"check": "tsc --noEmit",
 		"dev": "next dev",
-		"images": "node script/build-images.mjs",
+		"images": "tsx scripts/build-images.ts",
 		"purge": "rimraf .next .open-next .wrangler node_modules package-lock.json",
 		"start": "next start"
 	},

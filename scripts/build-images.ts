@@ -11,6 +11,7 @@
  * Run with: npm run images
  */
 import sharp from 'sharp'
+import type { Matrix3x3, Sharp } from 'sharp'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -18,6 +19,27 @@ import { fileURLToPath } from 'node:url'
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const SRC = path.join(ROOT, 'img')
 const OUT = path.join(ROOT, 'public', 'images')
+
+type ManifestEntry = {
+  src: string
+  widths: number[]
+}
+
+type Variant = {
+  w: number
+  h: number
+  file: string
+  bytes: number
+}
+
+type GeneratedAsset = {
+  src: string
+  width: number
+  height: number
+  aspect: number
+  srcSet: string
+  variants: { file: string; h: number; w: number }[]
+}
 
 /**
  * The shared grade.
@@ -27,7 +49,7 @@ const OUT = path.join(ROOT, 'public', 'images')
  * `soft-light` at low alpha so shadows drift toward the brand navy and the
  * set feels graded rather than merely filtered.
  */
-const RECOMB = [
+const RECOMB: Matrix3x3 = [
   [1.04, 0.02, 0.0],
   [0.01, 1.0, 0.01],
   [0.0, 0.03, 0.95],
@@ -51,7 +73,7 @@ const NAVY = { r: 0x12, g: 0x32, b: 0x4a }
  * logos, so that card is rendered typographically instead of using an
  * unrelated picture of a product that is not a supplement.
  */
-const MANIFEST = {
+const MANIFEST: Record<string, ManifestEntry> = {
   hero: { src: 'warehouse/12.jpg', widths: [960, 1600, 2400] },
   about: { src: 'warehouse/08.jpg', widths: [720, 1200, 1800] },
   serviceSourcing: { src: 'warehouse/16.jpg', widths: [560, 900, 1280] },
@@ -64,10 +86,10 @@ const MANIFEST = {
   chinaServing: { src: 'warehouse/03.jpg', widths: [720, 1200, 1800] },
   chinaHainan: { src: 'oem-service/01.jpg', widths: [720, 1200, 1800] },
   privateLabelMain: { src: 'warehouse/22.jpg', widths: [720, 1200, 1800] },
-  privateLabelAlt: { src: 'warehouse/19.jpg', widths: [560, 900, 1280] },
+  privateLabelAlt: { src: 'oem-service/19.jpg', widths: [560, 900, 1280] },
 }
 
-function graded(source) {
+function graded(source: string): Sharp {
   return sharp(source)
     .rotate()
     .modulate({ saturation: 0.62, brightness: 1.015 })
@@ -76,12 +98,12 @@ function graded(source) {
     .gamma(1.06)
 }
 
-async function applyNavyOverlay(pipeline, width, height) {
+async function applyNavyOverlay(pipeline: Sharp, width: number, height: number) {
   const overlay = {
     create: {
       width,
       height,
-      channels: 4,
+      channels: 4 as const,
       background: { ...NAVY, alpha: 0.09 },
     },
   }
@@ -91,7 +113,7 @@ async function applyNavyOverlay(pipeline, width, height) {
 async function build() {
   fs.mkdirSync(OUT, { recursive: true })
 
-  const generated = {}
+  const generated: Record<string, GeneratedAsset> = {}
   let totalBytes = 0
 
   for (const [slot, cfg] of Object.entries(MANIFEST)) {
@@ -102,9 +124,12 @@ async function build() {
 
     const base = sharp(source).rotate()
     const meta = await base.metadata()
+    if (meta.width === undefined || meta.height === undefined) {
+      throw new Error(`Could not read dimensions for "${slot}": ${source}`)
+    }
     const aspect = meta.height / meta.width
 
-    const variants = []
+    const variants: Variant[] = []
     for (const w of cfg.widths) {
       const h = Math.round(w * aspect)
       const outName = `${slot}-${w}.webp`
@@ -146,7 +171,7 @@ async function build() {
           create: {
             width: 1200,
             height: 630,
-            channels: 4,
+            channels: 4 as const,
             background: { ...NAVY, alpha: 0.42 },
           },
         },
@@ -168,7 +193,7 @@ async function build() {
 	.join("\n")
 
   const ts = [
-	"// 由 script/build-images.mjs 自动生成，请勿手动编辑。",
+	"// 由 scripts/build-images.ts 自动生成，请勿手动编辑。",
 	"// 重新生成：npm run images",
 	"",
 	"type ImageSlot =",
