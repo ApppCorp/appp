@@ -1,61 +1,61 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2015",
-      "ES2016",
-      "ES2017",
-      "ES2018",
-      "ES2019",
-      "ES2020",
-      "ES2021",
-      "ES2022",
-      "ES2023",
-      "ES2024",
-      "ESNext"
-    ],
-    "module": "preserve",
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    "noEmitOnError": true,
-    "outDir": "dist",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": false,
-    "strict": true,
-    "target": "es2018"
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "scripts",
-    "src",
-    "next-env.d.ts",
-    "next.config.ts",
-    "open-next.config.ts",
-    "postcss.config.mjs",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-  ]
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
+		"lib": [
+			"DOM",
+			"DOM.Iterable",
+			"ES2015",
+			"ES2016",
+			"ES2017",
+			"ES2018",
+			"ES2019",
+			"ES2020",
+			"ES2021",
+			"ES2022",
+			"ES2023",
+			"ES2024",
+			"ESNext"
+		],
+		"module": "preserve",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"noEmitOnError": true,
+		"outDir": "dist",
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		},
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"removeComments": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": false,
+		"strict": true,
+		"target": "es2018"
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"include": [
+		"scripts",
+		"src",
+		".next/types/**/*.ts",
+		".next/dev/types/**/*.ts",
+		"next-env.d.ts",
+		"next.config.ts",
+		"open-next.config.ts",
+		"postcss.config.mjs"
+	]
 }
