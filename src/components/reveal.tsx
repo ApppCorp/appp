@@ -1,7 +1,9 @@
 "use client";
 import type { JSX, ReactNode } from "react";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
+import { cn } from "@/utils/cn";
 
 type RevealProps = {
 	children: ReactNode
@@ -25,7 +27,7 @@ export function Reveal({
 }: RevealProps): JSX.Element {
 	return (
 		<motion.div
-			className={className}
+			className={cn(className)}
 			initial={{ opacity: 0, y: distance }}
 			transition={{ delay, duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
 			viewport={{ once: true, margin: "-72px" }}

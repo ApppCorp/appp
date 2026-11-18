@@ -8,6 +8,7 @@ import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Gotop } from "@/components";
 import { Footer, Navbar } from "@/layouts";
+import { cn } from "@/utils/cn";
 import { OG_IMAGE } from "@/utils/images";
 
 const sans = Plus_Jakarta_Sans({
@@ -58,8 +59,8 @@ export default async function LocaleLayout({
 	const { locale } = await params;
 	const messages = await getMessages();
 	return (
-		<html className={`${sans.variable} ${serif.variable}`} data-theme="appp" lang={locale} suppressHydrationWarning>
-			<body className="bg-base-100 font-sans text-base-content antialiased">
+		<html className={cn(sans.variable, serif.variable)} data-theme="appp" lang={locale} suppressHydrationWarning>
+			<body className={cn("bg-base-100 font-sans text-base-content antialiased")}>
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Navbar />
 					{children}

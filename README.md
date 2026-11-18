@@ -29,7 +29,7 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 
 ## 二、目录结构
 
-```
+```tree
 ├── script/build-images.mjs        图片调色 + 压缩管线
 ├── src
 │   ├── app
@@ -56,7 +56,9 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 │   ├── messages/en/               全部文案（component.json / home.json）
 │   ├── proxy.ts                   next-intl 中间件
 │   ├── types/
+│   ├── utils/cn.ts                className 拼接（条件类名统一走这里）
 │   └── utils/images.ts            图片清单（由 script 自动生成）
+├── public/_headers                静态资源响应头（Cloudflare ASSETS 绑定）
 ├── open-next.config.ts
 └── wrangler.jsonc
 ```
@@ -119,7 +121,7 @@ Edit Cloudflare Workers 模板 + Account 权限，作用域限定到本账号。
 | 变量 | 说明 |
 | --- | --- |
 | `RESEND_API_KEY` | Resend API Key |
-| `CONTACT_TO_EMAIL` | 询价接收邮箱，默认 sales_appp@outlook.com |
+| `CONTACT_TO_EMAIL` | 询价接收邮箱，默认 <sales_appp@outlook.com> |
 | `CONTACT_FROM_EMAIL` | 发件人地址，需在 Resend 中验证过域名 |
 
 在 Cloudflare 控制台配置 Worker 的 Settings → Variables and Secrets（加密类型）。
@@ -145,7 +147,7 @@ Edit Cloudflare Workers 模板 + Account 权限，作用域限定到本账号。
 按客户《更改网站内容》文档要求，以下内容需客户确认后才能正式发布：
 
 1. 公司当前地址（现用：PO Box 21471, Sydney, NSW 2002）
-2. 公司当前邮箱（现用：sales_appp@outlook.com）
+2. 公司当前邮箱（现用：<sales_appp@outlook.com>）
 3. 传真号码是否仍使用（当前已移除）
 4. 询价表单接收邮箱
 5. 公司法定英文名称（现用：Australia Premium Products Platform Pty Ltd）

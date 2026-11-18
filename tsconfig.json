@@ -54,6 +54,7 @@
 		"src",
 		"next-env.d.ts",
 		"next.config.ts",
+		"open-next.config.ts",
 		"postcss.config.mjs"
 	]
 }

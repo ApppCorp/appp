@@ -1,10 +1,12 @@
 import type { JSX } from "react";
 import React from "react";
 
+import { cn } from "@/utils/cn";
+
 export function Logo({ className = "size-6" }: { className?: string }): JSX.Element {
 	return (
 		<svg
-			className={className}
+			className={cn(className)}
 			fill="none"
 			viewBox="0 0 32 32"
 			xmlns="http://www.w3.org/2000/svg"

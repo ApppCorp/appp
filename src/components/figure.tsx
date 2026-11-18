@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 import React from "react";
 
+import { cn } from "@/utils/cn";
 import type { ImageSlot } from "@/utils/images";
 import { images } from "@/utils/images";
 
@@ -28,7 +29,7 @@ export function Figure({
 	return (
 		<img
 			alt={alt}
-			className={className}
+			className={cn(className)}
 			decoding="async"
 			height={asset.height}
 			loading="lazy"

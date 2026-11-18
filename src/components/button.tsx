@@ -2,6 +2,8 @@ import type { JSX, ReactNode } from "react";
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import { cn } from "@/utils/cn";
+
 type ButtonProps = {
 	children: ReactNode
 	className?: string
@@ -27,12 +29,16 @@ export function Button({
 }: ButtonProps): JSX.Element {
 	return (
 		<a
-			className={`group inline-flex items-center gap-3 rounded-full py-1.5 pl-6 pr-1.5 text-sm font-medium tracking-wide transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] ${VARIANTS[variant]} ${className}`}
+			className={cn(
+				"group inline-flex items-center gap-3 rounded-full py-1.5 pl-6 pr-1.5 text-sm font-medium tracking-wide transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]",
+				VARIANTS[variant],
+				className
+			)}
 			href={href}
 		>
-			<span className="whitespace-nowrap">{children}</span>
-			<span className="flex size-8 items-center justify-center rounded-full bg-secondary text-secondary-content transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
-				<ArrowUpRight className="size-4" strokeWidth={1.5} />
+			<span className={cn("whitespace-nowrap")}>{children}</span>
+			<span className={cn("flex size-8 items-center justify-center rounded-full bg-secondary text-secondary-content transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1")}>
+				<ArrowUpRight className={cn("size-4")} strokeWidth={1.5} />
 			</span>
 		</a>
 	);

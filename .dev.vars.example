@@ -1,5 +1,6 @@
 # 本地开发用的环境变量示例。
 # 复制为 .dev.vars 后由 wrangler dev / opennextjs-cloudflare preview 读取。
+# 注意：.dev.vars 已在 .gitignore 中，不要提交真实密钥。
 
 # Resend API Key，用于把询价表单送到公司邮箱
 RESEND_API_KEY="re_xxxxxxxxxxxxxxxxxxxxxxxxxxxx"

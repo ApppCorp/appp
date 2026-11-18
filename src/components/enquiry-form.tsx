@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
 
+import { cn } from "@/utils/cn";
+
 type FieldName = "companyName" | "contactName" | "email" | "country" | "productInterest" | "orderVolume" | "message";
 
 const TEXT_FIELDS: { name: FieldName; type: string; autoComplete: string; placeholder?: string }[] = [
@@ -51,16 +53,16 @@ export function EnquiryForm(): JSX.Element {
 	};
 
 	return (
-		<form className="space-y-5" noValidate onSubmit={handleSubmit}>
-			<div className="grid gap-5 sm:grid-cols-2">
+		<form className={cn("space-y-5")} noValidate onSubmit={handleSubmit}>
+			<div className={cn("grid gap-5 sm:grid-cols-2")}>
 				{TEXT_FIELDS.map((field) => (
-					<label className="flex flex-col gap-2" key={field.name}>
-						<span className="text-xs font-medium uppercase tracking-[0.14em] text-primary/60">
+					<label className={cn("flex flex-col gap-2")} key={field.name}>
+						<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
 							{form(field.name)}
 						</span>
 						<input
 							autoComplete={field.autoComplete}
-							className="w-full rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none"
+							className={cn("w-full rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none")}
 							name={field.name}
 							required
 							type={field.type}
@@ -69,12 +71,12 @@ export function EnquiryForm(): JSX.Element {
 				))}
 			</div>
 			{OPTION_FIELDS.map((field) => (
-				<label className="flex flex-col gap-2" key={field.name}>
-					<span className="text-xs font-medium uppercase tracking-[0.14em] text-primary/60">
+				<label className={cn("flex flex-col gap-2")} key={field.name}>
+					<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
 						{form(field.name)}
 					</span>
 					<input
-						className="w-full rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none"
+						className={cn("w-full rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none")}
 						name={field.name}
 						placeholder={form(field.placeholderKey)}
 						required={field.name === "productInterest"}
@@ -82,12 +84,12 @@ export function EnquiryForm(): JSX.Element {
 					/>
 				</label>
 			))}
-			<label className="flex flex-col gap-2">
-				<span className="text-xs font-medium uppercase tracking-[0.14em] text-primary/60">
+			<label className={cn("flex flex-col gap-2")}>
+				<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
 					{form("message")}
 				</span>
 				<textarea
-					className="w-full resize-y rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none"
+					className={cn("w-full resize-y rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none")}
 					name="message"
 					placeholder=""
 					required
@@ -97,28 +99,28 @@ export function EnquiryForm(): JSX.Element {
 			{/* 蜜罐：真人不会填，机器人会填 */}
 			<input
 				aria-hidden="true"
-				className="absolute h-0 w-0 opacity-0"
+				className={cn("absolute h-0 w-0 opacity-0")}
 				name="website"
 				tabIndex={-1}
 				type="text"
 			/>
 			<button
-				className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary py-4 text-sm font-medium text-primary-content transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-ink-deep active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+				className={cn("group inline-flex w-full items-center justify-center gap-3 rounded-full bg-primary py-4 text-sm font-medium text-primary-content transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-ink-deep active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60")}
 				disabled={status === "sending"}
 				type="submit"
 			>
 				{status === "sending"
 					? (
 						<>
-							<Loader2 className="size-4 animate-spin" strokeWidth={1.75} />
+							<Loader2 className={cn("size-4 animate-spin")} strokeWidth={1.75} />
 							{form("submitting")}
 						</>
 					)
 					: (
 						<>
 							{form("submit")}
-							<span className="flex size-7 items-center justify-center rounded-full bg-secondary text-secondary-content transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
-								<svg className="size-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+							<span className={cn("flex size-7 items-center justify-center rounded-full bg-secondary text-secondary-content transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1")}>
+								<svg className={cn("size-3.5")} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
 									<path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
 								</svg>
 							</span>
@@ -128,20 +130,21 @@ export function EnquiryForm(): JSX.Element {
 			{feedback
 				? (
 					<p
-						className={`rounded-xl border px-4 py-3 text-sm leading-relaxed ${
+						className={cn(
+							"rounded-xl border px-4 py-3 text-sm leading-relaxed",
 							status === "done"
 								? "border-success/30 bg-success/8 text-success"
 								: "border-error/30 bg-error/8 text-error"
-						}`}
+						)}
 						role="status"
 					>
 						{feedback}
 					</p>
 				)
 				: null}
-			<p className="text-xs text-primary/45">
+			<p className={cn("text-xs text-primary/45")}>
 				{form("fallback")}{" "}
-				<a className="text-primary/70 underline decoration-secondary underline-offset-4 hover:text-secondary" href="mailto:sales_appp@outlook.com?subject=Product%20Enquiry">
+				<a className={cn("text-primary/70 underline decoration-secondary underline-offset-4 hover:text-secondary")} href="mailto:sales_appp@outlook.com?subject=Product%20Enquiry">
 					sales_appp@outlook.com
 				</a>
 			</p>
