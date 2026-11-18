@@ -34,7 +34,7 @@ export function Navbar(): JSX.Element {
 							<span className={cn("font-serif text-lg tracking-tight text-primary")}>{t("title")}</span>
 						</a>
 						<ul className={cn("hidden items-center gap-0.5 lg:flex")}>
-							{SECTIONS.map((id) => (
+							{SECTIONS.map(id => (
 								<li key={id}>
 									<a
 										className={cn(
@@ -45,9 +45,8 @@ export function Navbar(): JSX.Element {
 									>
 										{t(`links.${id}`)}
 										{active === id
-											? (
-												<span className={cn("absolute inset-x-3 -bottom-0.5 h-px bg-secondary")} />
-											)
+											? <span className={cn("absolute inset-x-3 -bottom-0.5 h-px bg-secondary")} />
+
 											: null}
 									</a>
 								</li>
@@ -63,8 +62,8 @@ export function Navbar(): JSX.Element {
 							<button
 								aria-label={open ? t("close") : t("menu")}
 								className={cn("flex size-10 items-center justify-center rounded-full text-primary transition-colors duration-500 hover:bg-primary/8 lg:hidden")}
-								onClick={() => setOpen(!open)}
 								type="button"
+								onClick={() => setOpen(!open)}
 							>
 								{open ? <X className={cn("size-5")} strokeWidth={1.5} /> : <Menu className={cn("size-5")} strokeWidth={1.5} />}
 							</button>
@@ -87,12 +86,12 @@ export function Navbar(): JSX.Element {
 									{SECTIONS.map((id, index) => (
 										<li key={id}>
 											<motion.a
+												animate={{ opacity: 1, y: 0 }}
 												className={cn("block py-3 font-serif text-3xl text-base-100")}
 												href={`#${id}`}
 												initial={{ opacity: 0, y: 40 }}
-												animate={{ opacity: 1, y: 0 }}
-												onClick={() => setOpen(false)}
 												transition={{ delay: 0.06 * index + 0.1, duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+												onClick={() => setOpen(false)}
 											>
 												{t(`links.${id}`)}
 											</motion.a>
@@ -100,12 +99,12 @@ export function Navbar(): JSX.Element {
 									))}
 								</ul>
 								<motion.a
+									animate={{ opacity: 1, y: 0 }}
 									className={cn("mt-10 inline-flex w-fit items-center gap-3 rounded-full bg-secondary px-6 py-3 text-sm font-medium text-secondary-content")}
 									href="#contact"
 									initial={{ opacity: 0, y: 40 }}
-									animate={{ opacity: 1, y: 0 }}
-									onClick={() => setOpen(false)}
 									transition={{ delay: 0.5, duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+									onClick={() => setOpen(false)}
 								>
 									{t("cta")}
 								</motion.a>

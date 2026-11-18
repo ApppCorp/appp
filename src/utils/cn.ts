@@ -1,11 +1,10 @@
-export type ClassValue =
-	| string
+export type ClassValue = string
 	| number
 	| false
 	| null
 	| undefined
 	| ClassValue[]
-	| { [key: string]: boolean | null | undefined };
+	| Record<string, boolean | null | undefined>;
 
 /** 去掉首尾空白，并把中间的连续空白压成单个空格。 */
 function normalize(value: string): string {

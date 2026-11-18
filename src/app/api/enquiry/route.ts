@@ -1,16 +1,16 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-type EnquiryBody = {
+interface EnquiryBody {
 	companyName?: string
 	contactName?: string
-	email?: string
 	country?: string
-	productInterest?: string
-	orderVolume?: string
+	email?: string
 	message?: string
+	orderVolume?: string
+	productInterest?: string
 	website?: string
-};
+}
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "sales_appp@outlook.com";
 const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL ?? "APPP Website <onboarding@resend.dev>";
@@ -24,7 +24,7 @@ const hits = new Map<string, number[]>();
 
 function rateLimited(ip: string): boolean {
 	const now = Date.now();
-	const recent = (hits.get(ip) ?? []).filter((at) => now - at < RATE_LIMIT_WINDOW_MS);
+	const recent = (hits.get(ip) ?? []).filter(at => now - at < RATE_LIMIT_WINDOW_MS);
 	recent.push(now);
 	hits.set(ip, recent);
 	return recent.length > RATE_LIMIT_MAX;
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 	const ip = request.headers.get("cf-connecting-ip") ?? request.headers.get("x-forwarded-for") ?? "unknown";
 	if (rateLimited(ip)) {
 		return NextResponse.json(
-			{ ok: false, message: "Too many enquiries from this address. Please email us directly." },
+			{ message: "Too many enquiries from this address. Please email us directly.", ok: false },
 			{ status: 429 }
 		);
 	}
@@ -47,22 +47,22 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 	try {
 		body = await request.json() as EnquiryBody;
 	} catch {
-		return NextResponse.json({ ok: false, message: "Invalid request." }, { status: 400 });
+		return NextResponse.json({ message: "Invalid request.", ok: false }, { status: 400 });
 	}
 
 	// 蜜罐被填写 → 直接当作成功，避免告诉机器人哪里被拦下了
 	if (text(body.website)) {
-		return NextResponse.json({ ok: true, message: "Thank you — your enquiry has been sent." });
+		return NextResponse.json({ message: "Thank you — your enquiry has been sent.", ok: true });
 	}
 
 	const enquiry = {
 		companyName: text(body.companyName),
 		contactName: text(body.contactName),
-		email: text(body.email),
 		country: text(body.country),
-		productInterest: text(body.productInterest),
+		email: text(body.email),
+		message: text(body.message),
 		orderVolume: text(body.orderVolume),
-		message: text(body.message)
+		productInterest: text(body.productInterest)
 	};
 
 	const missing = [
@@ -76,14 +76,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
 	if (missing.length > 0) {
 		return NextResponse.json(
-			{ ok: false, message: "Please complete all required fields." },
+			{ message: "Please complete all required fields.", ok: false },
 			{ status: 400 }
 		);
 	}
 
 	if (!EMAIL_PATTERN.test(enquiry.email)) {
 		return NextResponse.json(
-			{ ok: false, message: "Please provide a valid email address." },
+			{ message: "Please provide a valid email address.", ok: false },
 			{ status: 400 }
 		);
 	}
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		// 预览阶段：没有配置邮件服务时，先把内容打进日志，页面会提示直接发邮件给我们
 		console.warn("[enquiry] RESEND_API_KEY 未配置，内容仅记录到日志：", enquiry);
 		return NextResponse.json(
-			{ ok: false, message: "The enquiry service is not configured yet. Please email us directly at sales_appp@outlook.com." },
+			{ message: "The enquiry service is not configured yet. Please email us directly at sales_appp@outlook.com.", ok: false },
 			{ status: 503 }
 		);
 	}
@@ -142,12 +142,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		const detail = await response.text();
 		console.error("[enquiry] 邮件发送失败：", response.status, detail);
 		return NextResponse.json(
-			{ ok: false, message: "The enquiry could not be sent. Please email us directly at sales_appp@outlook.com." },
+			{ message: "The enquiry could not be sent. Please email us directly at sales_appp@outlook.com.", ok: false },
 			{ status: 502 }
 		);
 	}
 
-	return NextResponse.json({ ok: true, message: "Thank you — your enquiry has been sent. We will reply shortly." });
+	return NextResponse.json({ message: "Thank you — your enquiry has been sent. We will reply shortly.", ok: true });
 }
 
 function escapeHtml(value: string): string {

@@ -7,13 +7,13 @@ import { Button, Logo } from "@/components";
 import { cn } from "@/utils/cn";
 
 const LINKS = [
-	{ key: "home", href: "#home" },
-	{ key: "about", href: "#about" },
-	{ key: "services", href: "#services" },
-	{ key: "products", href: "#products" },
-	{ key: "china-market", href: "#china-market" },
-	{ key: "private-label", href: "#private-label" },
-	{ key: "contact", href: "#contact" }
+	{ href: "#home", key: "home" },
+	{ href: "#about", key: "about" },
+	{ href: "#services", key: "services" },
+	{ href: "#products", key: "products" },
+	{ href: "#china-market", key: "china-market" },
+	{ href: "#private-label", key: "private-label" },
+	{ href: "#contact", key: "contact" }
 ] as const;
 
 export function Footer(): JSX.Element {
@@ -44,7 +44,7 @@ export function Footer(): JSX.Element {
 							{t("quickLinks")}
 						</h3>
 						<ul className={cn("mt-6 space-y-3")}>
-							{LINKS.map((link) => (
+							{LINKS.map(link => (
 								<li key={link.key}>
 									<a
 										className={cn("text-sm text-base-100/60 transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-secondary")}
@@ -78,8 +78,8 @@ export function Footer(): JSX.Element {
 					</div>
 				</div>
 				<div className={cn("mt-16 space-y-5 border-t border-white/10 pt-8 lg:mt-20")}>
-					{notice.map((line) => (
-						<p className={cn("text-xs leading-relaxed text-base-100/45")} key={line}>
+					{notice.map(line => (
+						<p key={line} className={cn("text-xs leading-relaxed text-base-100/45")}>
 							{line}
 						</p>
 					))}

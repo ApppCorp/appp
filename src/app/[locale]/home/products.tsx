@@ -6,13 +6,13 @@ import { Eyebrow, Figure, Reveal } from "@/components";
 import { cn } from "@/utils/cn";
 import type { ImageSlot } from "@/utils/images";
 
-type ProductItem = {
+interface ProductItem {
 	description: string
 	image: string
 	list: string[]
 	note: string
 	title: string
-};
+}
 
 export default function Products(): JSX.Element {
 	const t = useTranslations("home");
@@ -29,7 +29,7 @@ export default function Products(): JSX.Element {
 				</Reveal>
 				<div className={cn("mt-14 grid gap-5 lg:mt-20 lg:grid-cols-3")}>
 					{items.map((item, index) => (
-						<Reveal delay={0.08 * index} key={item.title}>
+						<Reveal key={item.title} delay={0.08 * index}>
 							<article className={cn("group flex h-full flex-col overflow-hidden rounded-[2rem] bg-primary/[0.04] p-1.5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary/[0.07]")}>
 								<div className={cn("flex h-full flex-col overflow-hidden rounded-[calc(2rem-0.375rem)] bg-base-100 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]")}>
 									{item.image
@@ -44,6 +44,7 @@ export default function Products(): JSX.Element {
 											</div>
 										)
 										: (
+
 											/*
 											 * 保健品品类按客户要求只以文字展示品牌名，不使用任何品牌 Logo，
 											 * 因此这一张用深色排版卡片代替照片；标题、说明与品牌名保持连贯的阅读顺序。
@@ -59,8 +60,8 @@ export default function Products(): JSX.Element {
 													{item.description}
 												</p>
 												<ul className={cn("mt-6 space-y-1.5")}>
-													{item.list.map((entry) => (
-														<li className={cn("font-serif text-lg leading-snug lg:text-xl")} key={entry}>
+													{item.list.map(entry => (
+														<li key={entry} className={cn("font-serif text-lg leading-snug lg:text-xl")}>
 															{entry}
 														</li>
 													))}
@@ -78,8 +79,8 @@ export default function Products(): JSX.Element {
 														{item.description}
 													</p>
 													<ul className={cn("mt-6 space-y-3")}>
-														{item.list.map((entry) => (
-															<li className={cn("flex items-baseline gap-3 text-base text-primary/85")} key={entry}>
+														{item.list.map(entry => (
+															<li key={entry} className={cn("flex items-baseline gap-3 text-base text-primary/85")}>
 																<span className={cn("h-px w-4 shrink-0 translate-y-[-3px] bg-secondary")} />
 																<span className={cn("font-serif")}>{entry}</span>
 															</li>

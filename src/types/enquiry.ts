@@ -1,28 +1,29 @@
-type EnquiryFieldName =
-	| "companyName"
-	| "contactName"
-	| "email"
-	| "country"
-	| "productInterest"
-	| "orderVolume"
-	| "message";
+type EnquiryFieldName
+	= | "companyName"
+		| "contactName"
+		| "email"
+		| "country"
+		| "productInterest"
+		| "orderVolume"
+		| "message";
 
-type EnquiryPayload = {
+interface EnquiryPayload {
 	companyName: string
 	contactName: string
-	email: string
 	country: string
-	productInterest: string
-	orderVolume: string
+	email: string
 	message: string
+	orderVolume: string
+	productInterest: string
+
 	/** Honeypot — real visitors never fill this in. */
 	website: string
-};
+}
 
-type EnquiryResult = {
-	ok: boolean
+interface EnquiryResult {
 	message: string
-};
+	ok: boolean
+}
 
 export type {
 	EnquiryFieldName,

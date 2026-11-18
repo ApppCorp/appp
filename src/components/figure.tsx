@@ -5,13 +5,14 @@ import { cn } from "@/utils/cn";
 import type { ImageSlot } from "@/utils/images";
 import { images } from "@/utils/images";
 
-type FigureProps = {
+interface FigureProps {
 	alt: string
 	className?: string
+
 	/** 告诉浏览器该图在视口中的大致宽度，用于挑选合适的分辨率 */
 	sizes: string
 	slot: ImageSlot
-};
+}
 
 /**
  * 响应式图片。

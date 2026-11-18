@@ -14,15 +14,15 @@ export function useActiveSection(ids: readonly string[]): string {
 		const targets = key
 			.split(",")
 			.filter(Boolean)
-			.map((id) => document.getElementById(id))
+			.map(id => document.getElementById(id))
 			.filter((el): el is HTMLElement => el !== null);
 		if (targets.length === 0) {
 			return;
 		}
 		const observer = new IntersectionObserver(
-			(entries) => {
+			entries => {
 				const visible = entries
-					.filter((entry) => entry.isIntersecting)
+					.filter(entry => entry.isIntersecting)
 					.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 				if (visible[0]) {
 					setActive(visible[0].target.id);
@@ -30,7 +30,7 @@ export function useActiveSection(ids: readonly string[]): string {
 			},
 			{ rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] }
 		);
-		targets.forEach((target) => observer.observe(target));
+		targets.forEach(target => observer.observe(target));
 		return () => observer.disconnect();
 	}, [key]);
 

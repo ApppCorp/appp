@@ -164,9 +164,9 @@
 	h2,
 	h3,
 	h4 {
+		line-height: 1.12;
 		font-family: var(--appp-serif), Georgia, "Times New Roman", serif;
 		font-weight: 600;
-		line-height: 1.12;
 		letter-spacing: -0.01em;
 	}
 	::selection {

@@ -5,14 +5,16 @@ import { motion } from "motion/react";
 
 import { cn } from "@/utils/cn";
 
-type RevealProps = {
+interface RevealProps {
 	children: ReactNode
 	className?: string
+
 	/** 同组元素依次入场的延迟（秒） */
 	delay?: number
+
 	/** 元素向上移动的距离（像素） */
 	distance?: number
-};
+}
 
 /**
  * 进入视口时的一次性淡入上移。
@@ -30,7 +32,7 @@ export function Reveal({
 			className={cn(className)}
 			initial={{ opacity: 0, y: distance }}
 			transition={{ delay, duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-			viewport={{ once: true, margin: "-72px" }}
+			viewport={{ margin: "-72px", once: true }}
 			whileInView={{ opacity: 1, y: 0 }}
 		>
 			{children}

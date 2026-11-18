@@ -8,14 +8,14 @@ import { cn } from "@/utils/cn";
 
 type FieldName = "companyName" | "contactName" | "email" | "country" | "productInterest" | "orderVolume" | "message";
 
-const TEXT_FIELDS: { name: FieldName; type: string; autoComplete: string; placeholder?: string }[] = [
+const TEXT_FIELDS: Array<{ autoComplete: string; name: FieldName; placeholder?: string; type: string }> = [
 	{ autoComplete: "organization", name: "companyName", type: "text" },
 	{ autoComplete: "name", name: "contactName", type: "text" },
 	{ autoComplete: "email", name: "email", type: "email" },
 	{ autoComplete: "country-name", name: "country", type: "text" }
 ];
 
-const OPTION_FIELDS: { name: FieldName; placeholderKey: string }[] = [
+const OPTION_FIELDS: Array<{ name: FieldName; placeholderKey: string }> = [
 	{ name: "productInterest", placeholderKey: "productInterestPlaceholder" },
 	{ name: "orderVolume", placeholderKey: "orderVolumePlaceholder" }
 ];
@@ -25,7 +25,7 @@ export function EnquiryForm(): JSX.Element {
 	const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
 	const [feedback, setFeedback] = useState("");
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+	const handleSubmit = async(event: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		event.preventDefault();
 		setStatus("sending");
 		setFeedback("");
@@ -55,8 +55,8 @@ export function EnquiryForm(): JSX.Element {
 	return (
 		<form className={cn("space-y-5")} noValidate onSubmit={handleSubmit}>
 			<div className={cn("grid gap-5 sm:grid-cols-2")}>
-				{TEXT_FIELDS.map((field) => (
-					<label className={cn("flex flex-col gap-2")} key={field.name}>
+				{TEXT_FIELDS.map(field => (
+					<label key={field.name} className={cn("flex flex-col gap-2")}>
 						<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
 							{form(field.name)}
 						</span>
@@ -64,14 +64,14 @@ export function EnquiryForm(): JSX.Element {
 							autoComplete={field.autoComplete}
 							className={cn("w-full rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none")}
 							name={field.name}
-							required
 							type={field.type}
+							required
 						/>
 					</label>
 				))}
 			</div>
-			{OPTION_FIELDS.map((field) => (
-				<label className={cn("flex flex-col gap-2")} key={field.name}>
+			{OPTION_FIELDS.map(field => (
+				<label key={field.name} className={cn("flex flex-col gap-2")}>
 					<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
 						{form(field.name)}
 					</span>
@@ -92,8 +92,8 @@ export function EnquiryForm(): JSX.Element {
 					className={cn("w-full resize-y rounded-xl border border-primary/12 bg-base-100 px-4 py-3 text-sm text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] placeholder:text-primary/30 focus:border-secondary focus:outline-none")}
 					name="message"
 					placeholder=""
-					required
 					rows={5}
+					required
 				/>
 			</label>
 			{/* 蜜罐：真人不会填，机器人会填 */}
@@ -120,7 +120,13 @@ export function EnquiryForm(): JSX.Element {
 						<>
 							{form("submit")}
 							<span className={cn("flex size-7 items-center justify-center rounded-full bg-secondary text-secondary-content transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1")}>
-								<svg className={cn("size-3.5")} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+								<svg
+									className={cn("size-3.5")}
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									viewBox="0 0 24 24"
+								>
 									<path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
 								</svg>
 							</span>

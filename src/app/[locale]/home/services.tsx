@@ -6,11 +6,11 @@ import { Eyebrow, Figure, Reveal } from "@/components";
 import { cn } from "@/utils/cn";
 import type { ImageSlot } from "@/utils/images";
 
-type ServiceItem = {
+interface ServiceItem {
 	description: string
 	image: string
 	title: string
-};
+}
 
 export default function Services(): JSX.Element {
 	const t = useTranslations("home");
@@ -30,9 +30,9 @@ export default function Services(): JSX.Element {
 						const wide = index < 2;
 						return (
 							<Reveal
+								key={item.title}
 								className={cn(wide ? "lg:col-span-3" : "lg:col-span-2")}
 								delay={0.06 * (index % 3)}
-								key={item.title}
 							>
 								<article className={cn("group h-full rounded-[2rem] bg-primary/[0.04] p-1.5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary/[0.07]")}>
 									<div className={cn("flex h-full flex-col overflow-hidden rounded-[calc(2rem-0.375rem)] bg-base-100 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]")}>

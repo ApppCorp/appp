@@ -4,18 +4,19 @@ import { ArrowUpRight } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 
-type ButtonProps = {
+interface ButtonProps {
 	children: ReactNode
 	className?: string
 	href?: string
+
 	/** primary 深底 / outline 描边 / light 深色区块上的浅色按钮 */
 	variant?: "primary" | "outline" | "light"
-};
+}
 
 const VARIANTS: Record<string, string> = {
-	primary: "bg-primary text-primary-content hover:bg-ink-deep",
+	light: "bg-base-100 text-primary hover:bg-secondary",
 	outline: "bg-transparent text-primary ring-1 ring-primary/20 hover:bg-primary hover:text-primary-content",
-	light: "bg-base-100 text-primary hover:bg-secondary"
+	primary: "bg-primary text-primary-content hover:bg-ink-deep"
 };
 
 /**

@@ -26,8 +26,8 @@ export default function Contact(): JSX.Element {
 								{t("contact.subtitle")}
 							</p>
 							<ul className={cn("mt-6 space-y-3")}>
-								{topics.map((topic) => (
-									<li className={cn("flex items-baseline gap-3 text-sm text-primary/75")} key={topic}>
+								{topics.map(topic => (
+									<li key={topic} className={cn("flex items-baseline gap-3 text-sm text-primary/75")}>
 										<span className={cn("h-px w-5 shrink-0 translate-y-[-3px] bg-secondary")} />
 										{topic}
 									</li>

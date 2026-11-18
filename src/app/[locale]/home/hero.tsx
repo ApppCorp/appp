@@ -26,8 +26,8 @@ export default function Hero(): JSX.Element {
 						</Reveal>
 						<Reveal delay={0.16}>
 							<div className={cn("mt-7 max-w-xl space-y-4")}>
-								{description.map((paragraph) => (
-									<p className={cn("text-base leading-relaxed text-primary/70 lg:text-lg")} key={paragraph}>
+								{description.map(paragraph => (
+									<p key={paragraph} className={cn("text-base leading-relaxed text-primary/70 lg:text-lg")}>
 										{paragraph}
 									</p>
 								))}

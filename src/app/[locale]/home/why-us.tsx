@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { Eyebrow, Reveal } from "@/components";
 import { cn } from "@/utils/cn";
 
-type WhyItem = {
+interface WhyItem {
 	description: string
 	title: string
-};
+}
 
 export default function WhyUs(): JSX.Element {
 	const t = useTranslations("home");
@@ -25,7 +25,7 @@ export default function WhyUs(): JSX.Element {
 				</Reveal>
 				<div className={cn("mt-14 grid gap-10 lg:mt-20 lg:grid-cols-4 lg:gap-8")}>
 					{items.map((item, index) => (
-						<Reveal delay={0.07 * index} key={item.title}>
+						<Reveal key={item.title} delay={0.07 * index}>
 							<div className={cn("border-t border-white/15 pt-7")}>
 								<span className={cn("text-[10px] font-medium uppercase tracking-[0.2em] text-secondary")}>
 									{String(index + 1).padStart(2, "0")}

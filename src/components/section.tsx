@@ -3,12 +3,13 @@ import React from "react";
 
 import { cn } from "@/utils/cn";
 
-type EyebrowProps = {
+interface EyebrowProps {
 	children: ReactNode
 	className?: string
+
 	/** 深色底上使用反色 */
 	inverse?: boolean
-};
+}
 
 export function Eyebrow({ children, className = "", inverse = false }: EyebrowProps): JSX.Element {
 	return (
@@ -25,12 +26,12 @@ export function Eyebrow({ children, className = "", inverse = false }: EyebrowPr
 	);
 }
 
-type SectionHeadingProps = {
+interface SectionHeadingProps {
 	eyebrow?: string
 	inverse?: boolean
 	subtitle?: string
 	title: string
-};
+}
 
 export function SectionHeading({
 	eyebrow,

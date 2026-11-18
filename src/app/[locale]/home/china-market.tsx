@@ -6,12 +6,12 @@ import { Eyebrow, Figure, Reveal } from "@/components";
 import { cn } from "@/utils/cn";
 import type { ImageSlot } from "@/utils/images";
 
-type ChinaBlock = {
+interface ChinaBlock {
 	description: string[]
 	image: string
 	status: string
 	title: string
-};
+}
 
 export default function ChinaMarket(): JSX.Element {
 	const t = useTranslations("home");
@@ -30,7 +30,7 @@ export default function ChinaMarket(): JSX.Element {
 					{blocks.map((block, index) => {
 						const flipped = index % 2 === 1;
 						return (
-							<div className={cn("grid items-center gap-12 lg:grid-cols-12 lg:gap-16")} key={block.title}>
+							<div key={block.title} className={cn("grid items-center gap-12 lg:grid-cols-12 lg:gap-16")}>
 								<div className={cn("lg:col-span-6", flipped && "lg:order-2")}>
 									<Reveal>
 										<div className={cn("relative")}>
@@ -58,8 +58,8 @@ export default function ChinaMarket(): JSX.Element {
 									</Reveal>
 									<Reveal delay={0.2}>
 										<div className={cn("mt-7 max-w-xl space-y-5")}>
-											{block.description.map((paragraph) => (
-												<p className={cn("text-base leading-relaxed text-primary/70")} key={paragraph}>
+											{block.description.map(paragraph => (
+												<p key={paragraph} className={cn("text-base leading-relaxed text-primary/70")}>
 													{paragraph}
 												</p>
 											))}

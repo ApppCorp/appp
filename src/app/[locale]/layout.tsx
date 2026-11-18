@@ -59,7 +59,12 @@ export default async function LocaleLayout({
 	const { locale } = await params;
 	const messages = await getMessages();
 	return (
-		<html className={cn(sans.variable, serif.variable)} data-theme="appp" lang={locale} suppressHydrationWarning>
+		<html
+			className={cn(sans.variable, serif.variable)}
+			data-theme="appp"
+			lang={locale}
+			suppressHydrationWarning
+		>
 			<body className={cn("bg-base-100 font-sans text-base-content antialiased")}>
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Navbar />

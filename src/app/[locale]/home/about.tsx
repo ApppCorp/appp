@@ -37,8 +37,8 @@ export default function About(): JSX.Element {
 						</Reveal>
 						<Reveal delay={0.16}>
 							<div className={cn("mt-10 max-w-2xl space-y-6")}>
-								{description.map((paragraph) => (
-									<p className={cn("text-base leading-relaxed text-primary/70 lg:text-lg")} key={paragraph}>
+								{description.map(paragraph => (
+									<p key={paragraph} className={cn("text-base leading-relaxed text-primary/70 lg:text-lg")}>
 										{paragraph}
 									</p>
 								))}

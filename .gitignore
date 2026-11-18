@@ -5,7 +5,6 @@ __pycache__
 .open-next
 .vscode
 .wrangler
-cloudflare-env.d.ts
 dist
 node_modules
 package-lock.json

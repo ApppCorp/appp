@@ -25,8 +25,8 @@ export default function PrivateLabel(): JSX.Element {
 						</Reveal>
 						<Reveal delay={0.08}>
 							<div className={cn("mt-8 max-w-2xl space-y-5")}>
-								{description.map((paragraph) => (
-									<p className={cn("text-base leading-relaxed text-primary/70 lg:text-lg")} key={paragraph}>
+								{description.map(paragraph => (
+									<p key={paragraph} className={cn("text-base leading-relaxed text-primary/70 lg:text-lg")}>
 										{paragraph}
 									</p>
 								))}
@@ -34,8 +34,8 @@ export default function PrivateLabel(): JSX.Element {
 						</Reveal>
 						<Reveal delay={0.14}>
 							<ul className={cn("mt-10 grid gap-x-10 gap-y-4 sm:grid-cols-2")}>
-								{items.map((item) => (
-									<li className={cn("flex items-start gap-3 text-sm text-primary/80")} key={item}>
+								{items.map(item => (
+									<li key={item} className={cn("flex items-start gap-3 text-sm text-primary/80")}>
 										<Check className={cn("mt-0.5 size-4 shrink-0 text-secondary")} strokeWidth={1.75} />
 										<span>{item}</span>
 									</li>
@@ -44,8 +44,8 @@ export default function PrivateLabel(): JSX.Element {
 						</Reveal>
 						<Reveal delay={0.2}>
 							<div className={cn("mt-12 rounded-[1.5rem] border border-primary/10 bg-base-200 p-7")}>
-								{disclaimer.map((line) => (
-									<p className={cn("text-xs leading-relaxed text-primary/55")} key={line}>
+								{disclaimer.map(line => (
+									<p key={line} className={cn("text-xs leading-relaxed text-primary/55")}>
 										{line}
 									</p>
 								))}

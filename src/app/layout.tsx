@@ -1,5 +1,5 @@
 import type { JSX, ReactNode } from "react";
-import React from "react";
+import { Fragment } from "react";
 
 /**
  * 根布局。
@@ -11,5 +11,5 @@ import React from "react";
  * 保持 next-intl 的标准结构。
  */
 export default function RootLayout({ children }: { children: ReactNode }): JSX.Element {
-	return <>{children}</>;
+	return <Fragment>{children}</Fragment>;
 }

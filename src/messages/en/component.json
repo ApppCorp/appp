@@ -1,8 +1,21 @@
 {
+	"footer": {
+		"address": "Address",
+		"addressValue": "Australia Premium Products Platform Pty Ltd, PO Box 21471, Sydney, NSW 2002, Australia",
+		"copyright": "© 2026 Australia Premium Products Platform Pty Ltd. All rights reserved.",
+		"cta": "Request Product Information",
+		"email": "Email",
+		"emailValue": "sales_appp@outlook.com",
+		"legalName": "Australia Premium Products Platform Pty Ltd",
+		"notice": [
+			"Product availability, export availability and market-access requirements vary by product and destination.",
+			"Brand names and trademarks are used for product identification only and remain the property of their respective owners. Product supply is subject to supplier approval, availability and destination-market requirements."
+		],
+		"quickLinks": "Quick Links"
+	},
 	"navbar": {
-		"menu": "Menu",
-		"title": "APPP",
 		"close": "Close menu",
+		"cta": "Contact Our Team",
 		"links": {
 			"about": "About",
 			"china-market": "China Market",
@@ -12,20 +25,7 @@
 			"products": "Products",
 			"services": "Services"
 		},
-		"cta": "Contact Our Team"
-	},
-	"footer": {
-		"address": "Address",
-		"addressValue": "Australia Premium Products Platform Pty Ltd, PO Box 21471, Sydney, NSW 2002, Australia",
-		"email": "Email",
-		"emailValue": "sales_appp@outlook.com",
-		"legalName": "Australia Premium Products Platform Pty Ltd",
-		"copyright": "© 2026 Australia Premium Products Platform Pty Ltd. All rights reserved.",
-		"notice": [
-			"Product availability, export availability and market-access requirements vary by product and destination.",
-			"Brand names and trademarks are used for product identification only and remain the property of their respective owners. Product supply is subject to supplier approval, availability and destination-market requirements."
-		],
-		"quickLinks": "Quick Links",
-		"cta": "Request Product Information"
+		"menu": "Menu",
+		"title": "APPP"
 	}
 }
