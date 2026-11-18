@@ -30,6 +30,7 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 ## 二、目录结构
 
 ```tree
+├── assets/img/                    原始照片（warehouse / oem-service）
 ├── scripts/build-images.ts        图片调色 + 压缩管线
 ├── src
 │   ├── app
@@ -59,6 +60,7 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 │   ├── utils/cn.ts                className 拼接（条件类名统一走这里）
 │   └── utils/images.ts            图片清单（由 script 自动生成）
 ├── public/_headers                静态资源响应头（Cloudflare ASSETS 绑定）
+├── public/img/                    导出的 WebP（由 scripts/build-images.ts 生成）
 ├── open-next.config.ts
 └── wrangler.jsonc
 ```
@@ -69,23 +71,23 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 npm install
 npm run dev          # http://localhost:3000/en
 npm run check        # tsc 类型检查
-npm run images       # 重新生成 public/images 下的 WebP 与 src/utils/images.ts
+npm run images       # 重新生成 public/img 下的 WebP 与 src/utils/images.ts
 npm run cf:build     # 生成 Cloudflare Worker 包
 npm run cf:preview   # 用本地 workerd 预览 Worker（http://localhost:8787）
 ```
 
 ## 四、图片管线
 
-原始照片放在 `img/`（约 78MB 手机原片）。`scripts/build-images.ts` 会对入选的 13 张图做统一调色
-（降饱和 + 暖色偏移 + 阴影向品牌海军蓝靠拢），导出三档 WebP 到 `public/images/`，并重写
+原始照片放在 `assets/img/`（约 78MB 手机原片）。`scripts/build-images.ts` 会对入选的 13 张图做统一调色
+（降饱和 + 暖色偏移 + 阴影向品牌海军蓝靠拢），导出三档 WebP 到 `public/img/`，并重写
 `src/utils/images.ts`。页面通过 `<Figure>` 组件直接输出 `srcset`，不经过运行时图片优化。
 
 改完照片后跑一次 `npm run images` 即可。
 
 ### 图片取舍说明
 
-- 已排除：`img/warehouse/09-11`（肉类）、`warehouse/17`（羊）、`warehouse/24`（控制面板）、
-  `img/oem-service/19-23`（Mica 自有品牌儿童补剂）、`oem-service/25`（编织篮纹理）
+- 已排除：`assets/img/warehouse/09-11`（肉类）、`warehouse/17`（羊）、`warehouse/24`（控制面板）、
+  `assets/img/oem-service/19-23`（Mica 自有品牌儿童补剂）、`oem-service/25`（编织篮纹理）
   —— 对应客户要求删除的品类与旧产品线。
 - 保健品品类没有配图：客户明确要求品牌名只能以文字展示、不得使用品牌 Logo，
   所以 `products.tsx` 中该卡片用深色排版卡片代替照片。

@@ -1,10 +1,10 @@
 /**
  * Image pipeline for the APPP site.
  *
- * 1. Selects the curated source photographs from ./img (raw phone shots).
+ * 1. Selects the curated source photographs from ./assets/img (raw phone shots).
  * 2. Applies one shared colour grade so every image reads as a single set —
  *    the brief explicitly requires "consistent colour tone across all images".
- * 3. Emits responsive WebP variants into ./public/images.
+ * 3. Emits responsive WebP variants into ./public/img.
  * 4. Writes ./lib/images.generated.ts so the app never drifts from the
  *    files that actually exist on disk.
  *
@@ -17,8 +17,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SRC = path.join(ROOT, "img");
-const OUT = path.join(ROOT, "public", "images");
+const SRC = path.join(ROOT, "assets", "img");
+const OUT = path.join(ROOT, "public", "img");
 
 interface ManifestEntry {
 	src: string
@@ -61,12 +61,12 @@ const NAVY = { b: 0x4a, g: 0x32, r: 0x12 };
  * Curated manifest.
  *
  * Excluded on purpose:
- *   - img/warehouse/09,10,11  (meat)   -> "Meats" category removed
- *   - img/warehouse/17         (sheep)  -> category removed
- *   - img/warehouse/24         (control panel) -> not premium imagery
- *   - img/oem-service/19-23    (Mica own-brand kids supplements) -> the brief
+ *   - assets/img/warehouse/09,10,11  (meat)   -> "Meats" category removed
+ *   - assets/img/warehouse/17         (sheep)  -> category removed
+ *   - assets/img/warehouse/24         (control panel) -> not premium imagery
+ *   - assets/img/oem-service/19-23    (Mica own-brand kids supplements) -> the brief
  *     asks for the Kids Supplement (Own Brand) line to come down
- *   - img/oem-service/25       (basket texture) -> unrelated
+ *   - assets/img/oem-service/25       (basket texture) -> unrelated
  *
  * There is deliberately no photograph for the Health Supplements category:
  * the brief requires brand names to appear as text only, with no brand
@@ -148,8 +148,8 @@ async function build() {
 		generated[slot] = {
 			aspect: Number(aspect.toFixed(4)),
 			height: variants[0].h,
-			src: `/images/${variants[0].file}`,
-			srcSet: variants.map(v => `/images/${v.file} ${v.w}w`).join(", "),
+			src: `/img/${variants[0].file}`,
+			srcSet: variants.map(v => `/img/${v.file} ${v.w}w`).join(", "),
 			variants: variants.map(v => ({ file: v.file, h: v.h, w: v.w })),
 			width: variants[0].w
 		};
@@ -215,7 +215,7 @@ async function build() {
 		"",
 		`export const images: Record<ImageSlot, ImageAsset> = ${json};`,
 		"",
-		`export const OG_IMAGE = "/images/${ogName}";`,
+		`export const OG_IMAGE = "/img/${ogName}";`,
 		""
 	].join("\n");
 	fs.writeFileSync(path.join(ROOT, "src", "utils", "images.ts"), ts);
