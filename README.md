@@ -125,7 +125,8 @@ Edit Cloudflare Workers 模板 + Account 权限，作用域限定到本账号。
 | `CONTACT_FROM_EMAIL` | 发件人地址，需在 Resend 中验证过域名 |
 
 在 Cloudflare 控制台配置 Worker 的 Settings → Variables and Secrets（加密类型）。
-本地调试可复制 `.dev.vars.example` 为 `.dev.vars`。
+本地调试时在项目根目录建一个 `.dev.vars`（已被 .gitignore 忽略，不要提交），
+按上表填入这三个变量，`wrangler dev` / `opennextjs-cloudflare preview` 会自动读取。
 
 未配置 `RESEND_API_KEY` 时，接口返回 503，页面会提示客户直接发邮件到公司邮箱，功能不会中断。
 

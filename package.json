@@ -5,11 +5,11 @@
 	"description": "APPP - Australia Premium Products Platform, B2B product sourcing and export",
 	"type": "module",
 	"scripts": {
-		"build": "next build",
 		"cf:build": "opennextjs-cloudflare build",
 		"cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
 		"cf:type": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+		"build": "next build",
 		"check": "tsc --noEmit",
 		"dev": "next dev",
 		"images": "node script/build-images.mjs",
@@ -34,14 +34,8 @@
 		"@types/react-dom": "19.3.0",
 		"rimraf": "6.1.4",
 		"tailwindcss": "4.3.5",
+		"tsx": "4.23.15",
 		"typescript": "6.0.3",
 		"wrangler": "4.164.0"
-	},
-	"allowScripts": {
-		"@swc/core@1.16.22": true,
-		"workerd@1.20261117.1": true,
-		"esbuild@0.28.2": true,
-		"@parcel/watcher@2.6.0": true,
-		"fsevents@2.3.3": true
 	}
 }
