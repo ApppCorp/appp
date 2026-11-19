@@ -49,15 +49,14 @@
 		var(--appp-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
 		"Source Han Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
 	--font-serif:
-		var(--appp-serif), "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC",
-		"SimSun", georgia, "Times New Roman", serif;
+		var(--appp-serif), "Songti SC", "Source Han Serif SC",
+		"Noto Serif CJK SC", "SimSun", georgia, "Times New Roman", serif;
 	--color-ink: #12324a;
 	--color-ink-deep: #0b1f2e;
 	--color-ivory: #f4f1ea;
 	--color-gold: #c6a15b;
 	--ease-out-expo: cubic-bezier(0.32, 0.72, 0, 1);
 }
-
 /*
  * 小标签的字距与字号。
  *
@@ -74,7 +73,6 @@
 	--appp-track-sub: 0.16em;
 	--appp-track-field: 0.14em;
 	--appp-size-label: 10px;
-
 	/* 标题字号与行距：西文用下面的值，中文在 :lang(zh) 里覆盖 */
 	--appp-size-display: 2.4rem;
 	--appp-size-display-sm: 3rem;
@@ -92,7 +90,6 @@
 	--appp-track-sub: 0.05em;
 	--appp-track-field: 0.05em;
 	--appp-size-label: 11.5px;
-
 	/*
 	 * 汉字是全角方块字，字面宽度约为拉丁大写字母的两倍，
 	 * 同样的 px 字号下中文标题看起来更大、更挤，也更容易在末尾掉字。
@@ -107,14 +104,12 @@
 	--appp-leading-display: 1.24;
 	--appp-leading-heading: 1.35;
 }
-
 /*
  * 中文没有斜体字形，浏览器只能模拟倾斜，标题上会明显发歪。
  */
 :lang(zh) .appp-italic {
 	font-style: normal;
 }
-
 /*
  * 中文标题按字换行，末尾很容易掉一两个字变成孤字。
  * text-wrap: balance 会把多行标题按行宽均分，避免出现孤字。
