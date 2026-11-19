@@ -22,7 +22,7 @@ export default function ChinaMarket(): JSX.Element {
 			<div className={cn("mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-36")}>
 				<Reveal>
 					<Eyebrow>{t("chinaMarket.eyebrow")}</Eyebrow>
-					<h2 className={cn("mt-8 max-w-3xl font-serif text-3xl leading-[1.12] text-primary sm:text-4xl lg:text-5xl")}>
+					<h2 className={cn("mt-8 max-w-3xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-primary sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 						{t("chinaMarket.title")}
 					</h2>
 				</Reveal>
@@ -46,7 +46,7 @@ export default function ChinaMarket(): JSX.Element {
 								</div>
 								<div className={cn("lg:col-span-6", flipped && "lg:order-1")}>
 									<Reveal delay={0.08}>
-										<span className={cn("inline-flex items-center gap-2.5 rounded-full border border-secondary/40 px-3.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-primary/70")}>
+										<span className={cn("inline-flex items-center gap-2.5 rounded-full border border-secondary/40 px-3.5 py-1.5 text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-status)] text-primary/70")}>
 											<span className={cn("size-1 rounded-full bg-secondary")} />
 											{block.status}
 										</span>

@@ -19,7 +19,7 @@ export default function WhyUs(): JSX.Element {
 			<div className={cn("mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-32")}>
 				<Reveal>
 					<Eyebrow inverse>{t("whyUs.eyebrow")}</Eyebrow>
-					<h2 className={cn("mt-8 max-w-2xl font-serif text-3xl leading-[1.12] text-base-100 sm:text-4xl lg:text-5xl")}>
+					<h2 className={cn("mt-8 max-w-2xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-base-100 sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 						{t("whyUs.title")}
 					</h2>
 				</Reveal>
@@ -27,7 +27,7 @@ export default function WhyUs(): JSX.Element {
 					{items.map((item, index) => (
 						<Reveal key={item.title} delay={0.07 * index}>
 							<div className={cn("border-t border-white/15 pt-7")}>
-								<span className={cn("text-[10px] font-medium uppercase tracking-[0.2em] text-secondary")}>
+								<span className={cn("text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-label-sm)] text-secondary")}>
 									{String(index + 1).padStart(2, "0")}
 								</span>
 								<h3 className={cn("mt-4 font-serif text-lg leading-snug text-base-100 lg:text-xl")}>

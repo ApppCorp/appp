@@ -13,9 +13,17 @@
 		],
 		"quickLinks": "Quick Links"
 	},
+	"gotop": {
+		"label": "Back to top"
+	},
 	"navbar": {
 		"close": "Close menu",
 		"cta": "Contact Our Team",
+		"language": {
+			"en": "EN",
+			"label": "Language",
+			"zh": "中文"
+		},
 		"links": {
 			"about": "About",
 			"china-market": "China Market",

@@ -19,9 +19,9 @@ export default function Hero(): JSX.Element {
 							<Eyebrow>{t("hero.eyebrow")}</Eyebrow>
 						</Reveal>
 						<Reveal delay={0.08}>
-							<h1 className={cn("mt-7 font-serif text-[2.4rem] leading-[1.06] text-primary sm:text-5xl lg:text-[3.5rem]")}>
+							<h1 className={cn("mt-7 font-serif text-[length:var(--appp-size-display)] leading-[var(--appp-leading-display)] text-primary sm:text-[length:var(--appp-size-display-sm)] lg:text-[length:var(--appp-size-display-lg)]")}>
 								{title[0]}
-								<span className={cn("mt-1.5 block italic text-primary/70")}>{title[1]}</span>
+								<span className={cn("mt-1.5 block appp-italic appp-title-line text-primary/70")}>{title[1]}</span>
 							</h1>
 						</Reveal>
 						<Reveal delay={0.16}>
@@ -45,7 +45,7 @@ export default function Hero(): JSX.Element {
 							<div className={cn("relative")}>
 								<div className={cn("absolute -inset-3 hidden rounded-[2.25rem] border border-secondary/35 sm:block")} />
 								<Figure
-									alt="Australian dairy cattle grazing on open pasture"
+									alt={t("hero.imageAlt")}
 									className={cn("relative h-[300px] w-full rounded-[1.75rem] object-cover shadow-[0_50px_90px_-45px_rgba(18,50,74,0.55)] sm:h-[400px] lg:h-[520px]")}
 									sizes="(min-width: 1024px) 46vw, 100vw"
 									slot="hero"

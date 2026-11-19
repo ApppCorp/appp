@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { Mail, MapPin } from "lucide-react";
 
-import { Button, Logo } from "@/components";
+import { Button, LocaleSwitcher, Logo } from "@/components";
 import { cn } from "@/utils/cn";
 
 const LINKS = [
@@ -33,14 +33,15 @@ export function Footer(): JSX.Element {
 						<p className={cn("mt-6 max-w-sm text-sm leading-relaxed text-base-100/60")}>
 							{t("legalName")}
 						</p>
-						<div className={cn("mt-8")}>
+						<div className={cn("mt-8 flex flex-wrap items-center gap-4")}>
 							<Button href="#contact" variant="light">
 								{t("cta")}
 							</Button>
+							<LocaleSwitcher inverse />
 						</div>
 					</div>
 					<div className={cn("lg:col-span-3")}>
-						<h3 className={cn("text-[10px] font-medium uppercase tracking-[0.22em] text-secondary")}>
+						<h3 className={cn("text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-label)] text-secondary")}>
 							{t("quickLinks")}
 						</h3>
 						<ul className={cn("mt-6 space-y-3")}>
@@ -57,7 +58,7 @@ export function Footer(): JSX.Element {
 						</ul>
 					</div>
 					<div className={cn("lg:col-span-4")}>
-						<h3 className={cn("text-[10px] font-medium uppercase tracking-[0.22em] text-secondary")}>
+						<h3 className={cn("text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-label)] text-secondary")}>
 							{t("address")}
 						</h3>
 						<div className={cn("mt-6 space-y-5")}>

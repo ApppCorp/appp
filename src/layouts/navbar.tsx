@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 
-import { Logo } from "@/components";
+import { LocaleSwitcher, Logo } from "@/components";
 import { useActiveSection } from "@/hooks";
 import { cn } from "@/utils/cn";
 
@@ -53,6 +53,7 @@ export function Navbar(): JSX.Element {
 							))}
 						</ul>
 						<div className={cn("flex shrink-0 items-center gap-2")}>
+							<LocaleSwitcher activeSection={active} className={cn("hidden lg:flex")} />
 							<a
 								className={cn("hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-primary-content transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-secondary hover:text-secondary-content active:scale-[0.98] sm:inline-flex")}
 								href="#contact"
@@ -98,16 +99,21 @@ export function Navbar(): JSX.Element {
 										</li>
 									))}
 								</ul>
-								<motion.a
+								<motion.div
 									animate={{ opacity: 1, y: 0 }}
-									className={cn("mt-10 inline-flex w-fit items-center gap-3 rounded-full bg-secondary px-6 py-3 text-sm font-medium text-secondary-content")}
-									href="#contact"
+									className={cn("mt-10 flex flex-wrap items-center gap-4")}
 									initial={{ opacity: 0, y: 40 }}
 									transition={{ delay: 0.5, duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-									onClick={() => setOpen(false)}
 								>
-									{t("cta")}
-								</motion.a>
+									<a
+										className={cn("inline-flex items-center gap-3 rounded-full bg-secondary px-6 py-3 text-sm font-medium text-secondary-content")}
+										href="#contact"
+										onClick={() => setOpen(false)}
+									>
+										{t("cta")}
+									</a>
+									<LocaleSwitcher activeSection={active} inverse />
+								</motion.div>
 							</nav>
 						</motion.div>
 					)

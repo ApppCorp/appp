@@ -18,7 +18,7 @@ export default function About(): JSX.Element {
 							<div className={cn("relative")}>
 								<div className={cn("absolute -inset-3 hidden rounded-[2.25rem] border border-secondary/30 lg:block")} />
 								<Figure
-									alt="Orders being prepared for dispatch in the APPP warehouse"
+									alt={t("about.imageAlt")}
 									className={cn("relative h-[280px] w-full rounded-[1.75rem] object-cover shadow-[0_40px_80px_-40px_rgba(18,50,74,0.5)] sm:h-[400px] lg:h-[520px]")}
 									sizes="(min-width: 1024px) 40vw, 100vw"
 									slot="about"
@@ -31,7 +31,7 @@ export default function About(): JSX.Element {
 							<Eyebrow>{t("about.eyebrow")}</Eyebrow>
 						</Reveal>
 						<Reveal delay={0.08}>
-							<h2 className={cn("mt-8 max-w-2xl font-serif text-3xl leading-[1.12] text-primary sm:text-4xl lg:text-5xl")}>
+							<h2 className={cn("mt-8 max-w-2xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-primary sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 								{t("about.title")}
 							</h2>
 						</Reveal>

@@ -8,15 +8,17 @@ export default getRequestConfig(async({ requestLocale }) => {
 	if (!locale || !routing.locales.includes(locale as Lang)) {
 		locale = routing.defaultLocale;
 	}
-	const [componentMessages, homeMessages] = await Promise.all([
+	const [componentMessages, homeMessages, metaMessages] = await Promise.all([
 		import(`../messages/${locale}/component.json`),
-		import(`../messages/${locale}/home.json`)
+		import(`../messages/${locale}/home.json`),
+		import(`../messages/${locale}/meta.json`)
 	]);
 	return {
 		locale,
 		messages: {
 			...componentMessages.default,
-			home: homeMessages.default
+			home: homeMessages.default,
+			meta: metaMessages.default
 		}
 	};
 });

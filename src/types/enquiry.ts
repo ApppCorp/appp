@@ -1,11 +1,10 @@
-type EnquiryFieldName
-	= | "companyName"
-		| "contactName"
-		| "email"
-		| "country"
-		| "productInterest"
-		| "orderVolume"
-		| "message";
+type EnquiryFieldName = "companyName"
+	| "contactName"
+	| "email"
+	| "country"
+	| "productInterest"
+	| "orderVolume"
+	| "message";
 
 interface EnquiryPayload {
 	companyName: string

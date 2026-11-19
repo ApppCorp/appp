@@ -23,7 +23,7 @@ export default function Products(): JSX.Element {
 			<div className={cn("mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-36")}>
 				<Reveal>
 					<Eyebrow>{t("products.eyebrow")}</Eyebrow>
-					<h2 className={cn("mt-8 max-w-2xl font-serif text-3xl leading-[1.12] text-primary sm:text-4xl lg:text-5xl")}>
+					<h2 className={cn("mt-8 max-w-2xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-primary sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 						{t("products.title")}
 					</h2>
 				</Reveal>
@@ -50,8 +50,8 @@ export default function Products(): JSX.Element {
 											 * 因此这一张用深色排版卡片代替照片；标题、说明与品牌名保持连贯的阅读顺序。
 											 */
 											<div className={cn("flex flex-col bg-primary p-7 text-primary-content lg:p-9")}>
-												<span className={cn("text-[10px] font-medium uppercase tracking-[0.2em] text-secondary")}>
-													Selected brands
+												<span className={cn("text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-label-sm)] text-secondary")}>
+													{t("products.selectedBrands")}
 												</span>
 												<h3 className={cn("mt-5 font-serif text-xl leading-snug lg:text-2xl")}>
 													{item.title}

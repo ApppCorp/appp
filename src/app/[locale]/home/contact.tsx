@@ -17,12 +17,12 @@ export default function Contact(): JSX.Element {
 					<div className={cn("lg:col-span-5")}>
 						<Reveal>
 							<Eyebrow>{t("contact.eyebrow")}</Eyebrow>
-							<h2 className={cn("mt-8 max-w-xl font-serif text-3xl leading-[1.12] text-primary sm:text-4xl lg:text-5xl")}>
+							<h2 className={cn("mt-8 max-w-xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-primary sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 								{t("contact.title")}
 							</h2>
 						</Reveal>
 						<Reveal delay={0.08}>
-							<p className={cn("mt-7 text-sm font-medium uppercase tracking-[0.16em] text-primary/50")}>
+							<p className={cn("mt-7 text-sm font-medium uppercase tracking-[var(--appp-track-sub)] text-primary/50")}>
 								{t("contact.subtitle")}
 							</p>
 							<ul className={cn("mt-6 space-y-3")}>
@@ -39,27 +39,25 @@ export default function Contact(): JSX.Element {
 								<div className={cn("flex items-start gap-4")}>
 									<MapPin className={cn("mt-0.5 size-4 shrink-0 text-secondary")} strokeWidth={1.5} />
 									<div>
-										<h3 className={cn("text-xs font-medium uppercase tracking-[0.16em] text-primary/50")}>
+										<h3 className={cn("text-xs font-medium uppercase tracking-[var(--appp-track-sub)] text-primary/50")}>
 											{t("contact.address")}
 										</h3>
 										<p className={cn("mt-2 text-sm leading-relaxed text-primary/75")}>
-											Australia Premium Products Platform Pty Ltd
-											<br />
-											PO Box 21471, Sydney, NSW 2002, Australia
+											{t("contact.addressValue")}
 										</p>
 									</div>
 								</div>
 								<div className={cn("flex items-start gap-4")}>
 									<Mail className={cn("mt-0.5 size-4 shrink-0 text-secondary")} strokeWidth={1.5} />
 									<div>
-										<h3 className={cn("text-xs font-medium uppercase tracking-[0.16em] text-primary/50")}>
+										<h3 className={cn("text-xs font-medium uppercase tracking-[var(--appp-track-sub)] text-primary/50")}>
 											{t("contact.email")}
 										</h3>
 										<a
 											className={cn("mt-2 block text-sm text-primary/75 transition-colors duration-500 hover:text-secondary")}
-											href="mailto:sales_appp@outlook.com"
+											href={`mailto:${t("contact.emailValue")}`}
 										>
-											sales_appp@outlook.com
+											{t("contact.emailValue")}
 										</a>
 									</div>
 								</div>

@@ -1,0 +1,39 @@
+{
+	"footer": {
+		"address": "地址",
+		"addressValue": "Australia Premium Products Platform Pty Ltd, PO Box 21471, Sydney, NSW 2002, Australia",
+		"copyright": "© 2026 Australia Premium Products Platform Pty Ltd. 保留所有权利。",
+		"cta": "索取产品资料",
+		"email": "邮箱",
+		"emailValue": "sales_appp@outlook.com",
+		"legalName": "Australia Premium Products Platform Pty Ltd",
+		"notice": [
+			"产品供应情况、出口供应情况与市场准入要求因产品与目的地而异。",
+			"品牌名称与商标仅用于产品识别，权利归各自所有者所有。产品供应取决于供应商审核、货源情况与目的地市场要求。"
+		],
+		"quickLinks": "快速链接"
+	},
+	"gotop": {
+		"label": "返回顶部"
+	},
+	"navbar": {
+		"close": "关闭菜单",
+		"cta": "联系我们的团队",
+		"language": {
+			"en": "EN",
+			"label": "语言",
+			"zh": "中文"
+		},
+		"links": {
+			"about": "关于我们",
+			"china-market": "中国市场",
+			"contact": "联系我们",
+			"home": "首页",
+			"private-label": "自有品牌与代工",
+			"products": "产品",
+			"services": "服务"
+		},
+		"menu": "菜单",
+		"title": "APPP"
+	}
+}

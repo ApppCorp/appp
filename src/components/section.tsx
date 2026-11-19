@@ -15,7 +15,7 @@ export function Eyebrow({ children, className = "", inverse = false }: EyebrowPr
 	return (
 		<span
 			className={cn(
-				"inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.22em]",
+				"inline-flex items-center gap-2.5 rounded-full px-3.5 py-1.5 text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-label)]",
 				inverse ? "bg-white/10 text-secondary" : "bg-primary/8 text-primary",
 				className
 			)}

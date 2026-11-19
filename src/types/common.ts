@@ -1,4 +1,4 @@
-type Lang = "en";
+type Lang = "en" | "zh";
 
 export type {
 	Lang

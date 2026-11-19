@@ -19,7 +19,7 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 | typescript | 6.0.3 | |
 | tailwindcss / @tailwindcss/postcss | 4.3.3 | Tailwind v4，CSS-first 配置 |
 | daisyui | 5.7.46 | 自定义品牌主题 appp |
-| next-intl | 4.14.7 | 多语言骨架，当前只上线英文 |
+| next-intl | 4.14.7 | 多语言：中文（默认）/ 英文 |
 | lucide-react | 1.48.0 | 图标 |
 | framer-motion | 13.4.4 | 滚动入场动画 |
 | clsx | 2.1.1 | |
@@ -31,6 +31,9 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 
 ```tree
 ├── assets/img/                    原始照片（warehouse / oem-service）
+├── docs/
+│   ├── COPYWRITING_EN.md          英文文案底稿（客户原文提取）
+│   └── COPYWRITING_ZH.md          中文文案底稿
 ├── scripts/build-images.ts        图片调色 + 压缩管线
 ├── src
 │   ├── app
@@ -48,13 +51,15 @@ B2B 澳洲产品采购与出口公司官网。当前线上站为旧版静态页�
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
 │   │   ├── api/enquiry/route.ts   询价表单接口
-│   │   ├── page.tsx               / → /en 重定向
+│   │   ├── page.tsx               / → /zh 重定向
 │   │   └── reset.css
 │   ├── components/                Logo、Figure、Reveal、Button、表单等
 │   ├── hooks/use-active-section.ts 导航高亮
-│   ├── i18n/                      next-intl 配置
+│   ├── i18n/                      next-intl 配置（routing / request / navigation）
 │   ├── layouts/                   Navbar、Footer
-│   ├── messages/en/               全部文案（component.json / home.json）
+│   ├── messages/
+│   │   ├── en/                  英文文案（component / home / meta）
+│   │   └── zh/                  中文文案（component / home / meta）
 │   ├── proxy.ts                   next-intl 中间件
 │   ├── types/
 │   ├── utils/cn.ts                className 拼接（条件类名统一走这里）
@@ -159,12 +164,25 @@ Edit Cloudflare Workers 模板 + Account 权限，作用域限定到本账号。
 8. 电脑版 / 平板 / 手机版页面效果
 9. 确认 Migration、Visa、Finance、Construction 内容已全部删除
 
-## 八、后续可选项
+## 八、双语与语言切换
 
-- 中文版：i18n 骨架已就绪，`src/i18n/routing.ts` 里加 `"zh"` 并补
-  `src/messages/zh/*.json` 即可。需客户确认中文文案（涉及海南、注册、商标等合规表述）。
+- 路由：`src/i18n/routing.ts` 里 `locales: ["zh", "en"]`、`defaultLocale: "zh"`，
+  `localeDetection: false`（`/` 固定跳 `/zh`，不受浏览器语言与 cookie 影响；
+  想按访客语言分流就把这个开关打开）。
+- 文案：全部文案在 `src/messages/{zh,en}/` 下，按 `component.json`（导航／页脚／
+  语言切换／返回顶部）、`home.json`（首页各版块）、`meta.json`（title／description／
+  keywords）三份拆分。底稿见 `docs/COPYWRITING_ZH.md` 与 `docs/COPYWRITING_EN.md`。
+- 切换器：`src/components/locale-switcher.tsx`，导航栏、页脚、移动端菜单各一处。
+  站内导航全是 `#section` 锚点，所以切换语言时会带上当前锚点，读者不会被甩回页面顶部。
+- 中文排版：品牌字体只含拉丁字形，中文按字回退到系统中文字体（苹方／雅黑／思源宋体），
+  不额外下载 5MB 的 CJK 网络字体。字号、字距、斜体等中西文差异在
+  `src/app/[locale]/globals.css` 里用 CSS 变量集中控制，`:lang(zh)` 覆盖西文默认值。
+- SEO：每个语言版本有独立的 `<title>`／description／OG 与 `hreflang` 互指。
+
+## 九、后续可选项
+
 - 保留 GitHub Pages 网址：如客户坚持继续用 `apppcorp.github.io/appp/`，
   可另加一条静态导出流水线（`output: "export"`）推送到 `gh-pages` 分支；
   但那样询价表单需要改用 Formspree 等第三方服务。
-- 多语言切换器：`.trae/rules/theme-style.md` 要求的语言/主题切换器未加入，
-  因为客户已固定配色与文案，切换器没有实际用途。
+- 中文文案定稿：中文底稿由英文文案对照翻译而来（海南、注册、商标等合规表述
+  严格对齐英文版），仍建议客户过一遍中文措辞。

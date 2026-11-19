@@ -21,7 +21,7 @@ export default function Services(): JSX.Element {
 			<div className={cn("mx-auto max-w-7xl px-4 py-24 lg:px-8 lg:py-36")}>
 				<Reveal>
 					<Eyebrow>{t("services.eyebrow")}</Eyebrow>
-					<h2 className={cn("mt-8 max-w-2xl font-serif text-3xl leading-[1.12] text-primary sm:text-4xl lg:text-5xl")}>
+					<h2 className={cn("mt-8 max-w-2xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-primary sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 						{t("services.title")}
 					</h2>
 				</Reveal>
@@ -45,7 +45,7 @@ export default function Services(): JSX.Element {
 											/>
 										</div>
 										<div className={cn("flex flex-1 flex-col p-7 lg:p-9")}>
-											<span className={cn("text-[10px] font-medium uppercase tracking-[0.2em] text-secondary")}>
+											<span className={cn("text-[length:var(--appp-size-label)] font-medium uppercase tracking-[var(--appp-track-label-sm)] text-secondary")}>
 												{String(index + 1).padStart(2, "0")}
 											</span>
 											<h3 className={cn("mt-4 font-serif text-xl leading-snug text-primary lg:text-2xl")}>

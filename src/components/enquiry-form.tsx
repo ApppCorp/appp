@@ -57,7 +57,7 @@ export function EnquiryForm(): JSX.Element {
 			<div className={cn("grid gap-5 sm:grid-cols-2")}>
 				{TEXT_FIELDS.map(field => (
 					<label key={field.name} className={cn("flex flex-col gap-2")}>
-						<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
+						<span className={cn("text-xs font-medium uppercase tracking-[var(--appp-track-field)] text-primary/60")}>
 							{form(field.name)}
 						</span>
 						<input
@@ -72,7 +72,7 @@ export function EnquiryForm(): JSX.Element {
 			</div>
 			{OPTION_FIELDS.map(field => (
 				<label key={field.name} className={cn("flex flex-col gap-2")}>
-					<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
+					<span className={cn("text-xs font-medium uppercase tracking-[var(--appp-track-field)] text-primary/60")}>
 						{form(field.name)}
 					</span>
 					<input
@@ -85,7 +85,7 @@ export function EnquiryForm(): JSX.Element {
 				</label>
 			))}
 			<label className={cn("flex flex-col gap-2")}>
-				<span className={cn("text-xs font-medium uppercase tracking-[0.14em] text-primary/60")}>
+				<span className={cn("text-xs font-medium uppercase tracking-[var(--appp-track-field)] text-primary/60")}>
 					{form("message")}
 				</span>
 				<textarea
@@ -150,8 +150,11 @@ export function EnquiryForm(): JSX.Element {
 				: null}
 			<p className={cn("text-xs text-primary/45")}>
 				{form("fallback")}{" "}
-				<a className={cn("text-primary/70 underline decoration-secondary underline-offset-4 hover:text-secondary")} href="mailto:sales_appp@outlook.com?subject=Product%20Enquiry">
-					sales_appp@outlook.com
+				<a
+					className={cn("text-primary/70 underline decoration-secondary underline-offset-4 hover:text-secondary")}
+					href={`mailto:${form("emailAddress")}?subject=${encodeURIComponent(form("emailSubject"))}`}
+				>
+					{form("emailAddress")}
 				</a>
 			</p>
 		</form>

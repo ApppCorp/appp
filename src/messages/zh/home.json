@@ -1,0 +1,204 @@
+{
+	"about": {
+		"description": [
+			"Australia Premium Products Platform Pty Ltd（APPP）是一家位于悉尼的 B2B 产品采购与出口公司。",
+			"我们与成熟的澳洲供应商及生产合作伙伴合作，为国际商业客户提供精选保健品、全脂奶粉、脱脂奶粉及自有品牌产品方案。",
+			"中国大陆是我们已建立的出口市场之一。我们正在持续拓展中国大陆的新客户、渠道关系与销售渠道，并关注海南等新兴机会。"
+		],
+		"eyebrow": "关于我们",
+		"imageAlt": "APPP 仓库内正在备货待发的订单",
+		"title": "一家位于悉尼的采购与出口伙伴"
+	},
+	"chinaMarket": {
+		"eyebrow": "我们的中国市场",
+		"items": [
+			{
+				"description": [
+					"APPP 目前通过批发、出口与订单代发安排，向中国大陆客户供应精选的澳洲保健品与乳制品。",
+					"不同产品与销售渠道的进口、备案、标签与平台要求可能不同。产品供应情况按产品、客户与拟销售渠道逐项评估。"
+				],
+				"image": "chinaServing",
+				"status": "现有市场",
+				"title": "服务中国大陆"
+			},
+			{
+				"description": [
+					"APPP 目前正在与潜在的业务伙伴接洽，并评估海南的产品准入与零售渠道机会。",
+					"相关工作包括了解适用的进口准入、产品资料与平台上架要求。",
+					"海南后续的任何供货或产品上线，均须符合适用的法规要求、商业安排与正式审批。"
+				],
+				"image": "chinaHainan",
+				"status": "机会开发中",
+				"title": "拓展海南"
+			}
+		],
+		"title": "深耕中国大陆，布局海南"
+	},
+	"contact": {
+		"address": "地址",
+		"addressValue": "Australia Premium Products Platform Pty Ltd, PO Box 21471, Sydney, NSW 2002, Australia",
+		"email": "邮箱",
+		"emailValue": "sales_appp@outlook.com",
+		"eyebrow": "联系我们",
+		"form": {
+			"companyName": "公司名称",
+			"contactName": "联系人",
+			"country": "国家 / 地区",
+			"email": "邮箱",
+			"emailAddress": "sales_appp@outlook.com",
+			"emailSubject": "产品询盘",
+			"error": "抱歉，询盘未能发送成功。请直接发送邮件给我们，我们会尽快回复。",
+			"fallback": "或直接发送邮件至",
+			"message": "留言",
+			"orderVolume": "预计订购量",
+			"orderVolumePlaceholder": "例如：1 个 20 尺柜、500 公斤、1 个托盘",
+			"productInterest": "感兴趣的产品",
+			"productInterestPlaceholder": "例如：全脂奶粉、保健品",
+			"required": "必填",
+			"submit": "发送询盘",
+			"submitting": "发送中…",
+			"success": "感谢您的询盘已发送，我们将尽快回复。",
+			"title": "发送询盘"
+		},
+		"subtitle": "请就以下事项与我们联系：",
+		"title": "洽谈您的产品或出口需求",
+		"topics": [
+			"澳洲产品采购",
+			"批发与出口咨询",
+			"保健品供应",
+			"全脂奶粉与脱脂奶粉",
+			"自有品牌与代工项目",
+			"中国大陆与海南市场机会"
+		]
+	},
+	"hero": {
+		"description": [
+			"APPP 向中国大陆的商业客户供应精选的澳洲保健品与乳制品。",
+			"通过产品采购、出口协调、订单代发与市场开发支持，我们帮助国际商家对接优质澳洲产品与可靠的供应链方案。"
+		],
+		"eyebrow": "Australia Premium Products Platform",
+		"imageAlt": "澳洲奶牛在开阔牧场上的航拍",
+		"primaryCta": "浏览我们的产品",
+		"secondaryCta": "洽谈出口合作机会",
+		"title": [
+			"优质澳洲产品",
+			"服务不断增长的亚洲市场"
+		]
+	},
+	"privateLabel": {
+		"cta": "洽谈您的项目",
+		"description": [
+			"APPP 为寻求澳洲产品开发与生产方案的国际商业客户协调自有品牌与代工项目。",
+			"我们的项目支持包括："
+		],
+		"disclaimer": [
+			"生产由精选的第三方澳洲生产合作伙伴完成。",
+			"产品供应、交付周期、最低起订量与法规要求因产品与目的地市场而异。"
+		],
+		"eyebrow": "自有品牌与代工",
+		"imageAlt": "由澳洲生产合作伙伴运营的生产线",
+		"imageAltSecondary": "精选第三方澳洲生产合作伙伴的工厂",
+		"items": [
+			"产品选择与配方沟通",
+			"生产厂商协调",
+			"包装与品牌设计",
+			"最低起订量与报价审核",
+			"生产计划安排",
+			"出口准备与交付协调"
+		],
+		"title": "借助澳洲生产合作伙伴打造您的品牌"
+	},
+	"products": {
+		"eyebrow": "我们的产品",
+		"items": [
+			{
+				"description": "我们供应来自成熟品牌的澳洲产保健品，包括：",
+				"image": "",
+				"list": [
+					"BioCeuticals",
+					"Herbs of Gold",
+					"Bioglan Medlab"
+				],
+				"note": "可供应的品牌与产品取决于供应商审核、库存情况与目的地市场要求。",
+				"title": "澳洲保健品"
+			},
+			{
+				"description": "我们为 B2B 及出口客户供应澳洲产乳制品，包括：",
+				"image": "productDairy",
+				"list": [
+					"全脂奶粉",
+					"脱脂奶粉"
+				],
+				"note": "产品规格、包装选项、最低起订量与出口供应情况可按客户需求提供。",
+				"title": "澳洲乳制品"
+			},
+			{
+				"description": "我们通过澳洲生产合作伙伴协调精选的自有品牌与代工项目，包括：",
+				"image": "productPrivateLabel",
+				"list": [
+					"保健品",
+					"功能性食品",
+					"营养粉",
+					"乳制品类产品"
+				],
+				"note": "",
+				"title": "自有品牌产品"
+			}
+		],
+		"selectedBrands": "精选品牌",
+		"title": "精选澳洲产品供应"
+	},
+	"services": {
+		"eyebrow": "我们的服务",
+		"items": [
+			{
+				"description": "我们为国际商业客户采购精选的澳洲健康、营养与食品产品。",
+				"image": "serviceSourcing",
+				"title": "澳洲产品采购"
+			},
+			{
+				"description": "我们统筹产品供应、批发订单、出口准备与国际交付安排。",
+				"image": "serviceSupply",
+				"title": "批发与出口供应"
+			},
+			{
+				"description": "我们为已审核的澳洲产品提供灵活的订单代发与出口发运方案，具体视产品货源与目的地要求而定。",
+				"image": "serviceFulfilment",
+				"title": "出口代发"
+			},
+			{
+				"description": "我们与精选的澳洲生产合作伙伴协作，协调自有品牌保健品、功能性食品与营养产品项目。",
+				"image": "servicePrivateLabel",
+				"title": "自有品牌与代工"
+			},
+			{
+				"description": "我们通过客户与服务商网络，为中国大陆市场提供商务洽谈、产品准备与渠道开发支持。",
+				"image": "serviceChina",
+				"title": "中国市场开发"
+			}
+		],
+		"title": "我们负责的环节"
+	},
+	"whyUs": {
+		"eyebrow": "为什么选择 APPP",
+		"items": [
+			{
+				"description": "对接精选的澳洲供应商、产品与生产合作伙伴。",
+				"title": "澳洲供应网络"
+			},
+			{
+				"description": "拥有向中国大陆供应保健品与乳制品的实际经验。",
+				"title": "中国出口经验"
+			},
+			{
+				"description": "支持批发订单、出口代发与自有品牌项目。",
+				"title": "灵活的 B2B 方案"
+			},
+			{
+				"description": "围绕产品、目的地市场与客户需求提供务实协调。",
+				"title": "面向市场的支持"
+			}
+		],
+		"title": "值得依靠的四点"
+	}
+}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { JSX, ReactNode } from "react";
 import React from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
 
 import "./globals.css";
@@ -23,31 +23,39 @@ const serif = Source_Serif_4({
 	variable: "--appp-serif"
 });
 
-const DESCRIPTION = "APPP is a Sydney-based B2B product sourcing and export company supplying selected Australian health supplements, milk powder and private label product solutions to international business customers.";
-
-export const metadata: Metadata = {
-	authors: [{ name: "Australia Premium Products Platform Pty Ltd" }],
-	description: DESCRIPTION,
-	keywords: [
-		"APPP",
-		"Australian health supplements",
-		"full cream milk powder",
-		"skim milk powder",
-		"private label OEM",
-		"export Mainland China",
-		"product sourcing Australia"
-	],
-	metadataBase: new URL("https://apppcorp.github.io"),
-	openGraph: {
-		description: DESCRIPTION,
-		images: [{ height: 630, url: OG_IMAGE, width: 1200 }],
-		locale: "en_AU",
-		siteName: "Australia Premium Products Platform",
-		title: "APPP — Premium Australian Products For Growing Asian Markets",
-		type: "website"
-	},
-	title: "APPP — Premium Australian Products For Growing Asian Markets"
+/** BCP 47 语言标签：zh 需要指明简体，en 指明澳大利亚。 */
+const HTML_LANG: Record<string, string> = {
+	en: "en-AU",
+	zh: "zh-Hans"
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: "meta" });
+
+	return {
+		alternates: {
+			canonical: `/${locale}`,
+			languages: {
+				en: "/en",
+				zh: "/zh"
+			}
+		},
+		authors: [{ name: "Australia Premium Products Platform Pty Ltd" }],
+		description: t("description"),
+		keywords: t.raw("keywords") as string[],
+		metadataBase: new URL("https://apppcorp.github.io"),
+		openGraph: {
+			description: t("description"),
+			images: [{ height: 630, url: OG_IMAGE, width: 1200 }],
+			locale: locale === "zh" ? "zh_CN" : "en_AU",
+			siteName: "Australia Premium Products Platform",
+			title: t("title"),
+			type: "website"
+		},
+		title: t("title")
+	};
+}
 
 export default async function LocaleLayout({
 	children,
@@ -62,7 +70,7 @@ export default async function LocaleLayout({
 		<html
 			className={cn(sans.variable, serif.variable)}
 			data-theme="appp"
-			lang={locale}
+			lang={HTML_LANG[locale] ?? locale}
 			suppressHydrationWarning
 		>
 			<body className={cn("bg-base-100 font-sans text-base-content antialiased")}>

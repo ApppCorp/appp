@@ -6,6 +6,7 @@
 			"Mainland China is one of our established export markets. We are continuing to develop new customers, distribution relationships and sales channels within China, including emerging opportunities in Hainan."
 		],
 		"eyebrow": "About APPP",
+		"imageAlt": "Orders being prepared for dispatch in the APPP warehouse",
 		"title": "A Sydney-based sourcing and export partner"
 	},
 	"chinaMarket": {
@@ -35,13 +36,17 @@
 	},
 	"contact": {
 		"address": "Address",
+		"addressValue": "Australia Premium Products Platform Pty Ltd, PO Box 21471, Sydney, NSW 2002, Australia",
 		"email": "Email",
+		"emailValue": "sales_appp@outlook.com",
 		"eyebrow": "Contact Us",
 		"form": {
 			"companyName": "Company Name",
 			"contactName": "Contact Name",
 			"country": "Country / Region",
 			"email": "Email",
+			"emailAddress": "sales_appp@outlook.com",
+			"emailSubject": "Product Enquiry",
 			"error": "Sorry, the enquiry could not be sent. Please email us directly and we will respond promptly.",
 			"fallback": "Or email us directly",
 			"message": "Message",
@@ -72,6 +77,7 @@
 			"Through product sourcing, export coordination, order fulfilment and market development support, we help international businesses access quality Australian products and reliable supply solutions."
 		],
 		"eyebrow": "Australia Premium Products Platform",
+		"imageAlt": "Australian dairy cattle grazing on open pasture",
 		"primaryCta": "Explore Our Products",
 		"secondaryCta": "Discuss An Export Opportunity",
 		"title": [
@@ -90,6 +96,8 @@
 			"Product availability, lead times, minimum order quantities and regulatory requirements vary by product and destination market."
 		],
 		"eyebrow": "Private Label & OEM",
+		"imageAlt": "Production line operated by an Australian manufacturing partner",
+		"imageAltSecondary": "Selected third-party Australian manufacturing partner facility",
 		"items": [
 			"Product selection and formulation discussions",
 			"Manufacturer coordination",
@@ -137,6 +145,7 @@
 				"title": "Private Label Products"
 			}
 		],
+		"selectedBrands": "Selected brands",
 		"title": "Selected Australian product supply"
 	},
 	"services": {

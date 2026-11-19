@@ -19,7 +19,7 @@ export default function PrivateLabel(): JSX.Element {
 					<div className={cn("lg:col-span-7")}>
 						<Reveal>
 							<Eyebrow>{t("privateLabel.eyebrow")}</Eyebrow>
-							<h2 className={cn("mt-8 max-w-2xl font-serif text-3xl leading-[1.12] text-primary sm:text-4xl lg:text-5xl")}>
+							<h2 className={cn("mt-8 max-w-2xl font-serif text-[length:var(--appp-size-heading)] leading-[var(--appp-leading-heading)] text-primary sm:text-[length:var(--appp-size-heading-sm)] lg:text-[length:var(--appp-size-heading-lg)]")}>
 								{t("privateLabel.title")}
 							</h2>
 						</Reveal>
@@ -62,7 +62,7 @@ export default function PrivateLabel(): JSX.Element {
 							<div className={cn("relative")}>
 								<div className={cn("absolute -inset-3 hidden rounded-[2.25rem] border border-secondary/30 lg:block")} />
 								<Figure
-									alt="Production line operated by an Australian manufacturing partner"
+									alt={t("privateLabel.imageAlt")}
 									className={cn("relative h-[280px] w-full rounded-[1.75rem] object-cover shadow-[0_40px_80px_-40px_rgba(18,50,74,0.5)] sm:h-[360px] lg:h-[440px]")}
 									sizes="(min-width: 1024px) 40vw, 100vw"
 									slot="privateLabelMain"
@@ -72,7 +72,7 @@ export default function PrivateLabel(): JSX.Element {
 						<Reveal delay={0.16} distance={40}>
 							<div className={cn("relative mt-6 hidden lg:block")}>
 								<Figure
-									alt="Selected third-party Australian manufacturing partner facility"
+									alt={t("privateLabel.imageAltSecondary")}
 									className={cn("h-[240px] w-full rounded-[1.75rem] object-cover shadow-[0_40px_80px_-40px_rgba(18,50,74,0.45)]")}
 									sizes="(min-width: 1024px) 40vw"
 									slot="privateLabelAlt"
